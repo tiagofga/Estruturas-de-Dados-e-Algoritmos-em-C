@@ -1,7 +1,7 @@
 #include "algoritmos_grafos.h"
 #include "avl.h"
 #include "tabela_hash.h"
-#include "../include/memoria_segura.h"
+#include "comum/memoria_segura.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -56,14 +56,8 @@ static void bench_tabela_hash(void) {
 static void bench_kruskal(void) {
     const size_t vertices = 200U;
     const size_t edges = vertices * 3U;
-    if (!memoria_multiplicacao_valida(edges, sizeof(ArestaPeso)) ||
-        !memoria_multiplicacao_valida(vertices - 1U, sizeof(ArestaPeso))) {
-        fprintf(stderr, "graph benchmark size overflow\n");
-        return;
-    }
-
-    ArestaPeso *arestas = malloc(edges * sizeof(*arestas));
-    ArestaPeso *mst = malloc((vertices - 1U) * sizeof(*mst));
+    ArestaPeso *arestas = memoria_alocar_vetor(edges, sizeof(*arestas));
+    ArestaPeso *mst = memoria_alocar_vetor(vertices - 1U, sizeof(*mst));
     if (arestas == NULL || mst == NULL) {
         free(arestas);
         free(mst);

@@ -1,7 +1,7 @@
 # Métodos de Ordenação — Referência de Complexidade
 
 Este documento é a referência detalhada dos algoritmos de ordenação implementados no módulo
-[Métodos de Ordenação](../Métodos%20de%20Ordenação).
+[Métodos de Ordenação](../Ordenacao/Métodos%20de%20Ordenação).
 
 ---
 

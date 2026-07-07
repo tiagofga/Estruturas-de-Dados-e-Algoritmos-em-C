@@ -121,7 +121,7 @@ int main(void) {
 ## Compilar e executar
 
 ```bash
-cd Pilha
+cd Lineares/Pilha
 make
 make run
 make test

@@ -13,11 +13,14 @@ Este projeto usa C com alocação manual, portanto as implementações seguem um
 
 ## Helper compartilhado
 
-O arquivo [`include/memoria_segura.h`](../include/memoria_segura.h) concentra as checagens de tamanho usadas pelos módulos:
+O arquivo [`include/comum/memoria_segura.h`](../include/comum/memoria_segura.h) concentra as checagens de tamanho usadas pelos módulos:
 
 ```c
 memoria_multiplicacao_valida(quantidade, sizeof(Tipo))
 memoria_dobro_valido(capacidade, &nova_capacidade)
+memoria_alocar_vetor(quantidade, sizeof(Tipo))
+memoria_alocar_vetor_zero(quantidade, sizeof(Tipo))
+memoria_realocar_vetor(ptr, quantidade, sizeof(Tipo))
 ```
 
 Essas funções são `static inline` para poderem ser incluídas por qualquer módulo sem criar símbolos extras no link.

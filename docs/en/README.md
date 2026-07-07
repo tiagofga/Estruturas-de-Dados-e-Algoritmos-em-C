@@ -19,6 +19,7 @@ Complete reference for each module in the repository.
 | [Adjacency-list graph](./AdjacencyListGraph.md) | Sparse graph representation with positive weights, BFS, DFS, and Dijkstra |
 | [Advanced graph algorithms](./AdvancedGraphAlgorithms.md) | Opaque Union-Find, Kruskal, Prim, Bellman-Ford, and Floyd-Warshall |
 | [Benchmarks](../Benchmarks.md) | Formal benchmark with CSV output |
+| [Repository organization](./RepositoryOrganization.md) | Separation between modules, shared helpers, documentation, exercises, and benchmarks |
 | [Makefiles](./Makefiles.md) | Modular build pattern and external references for the base Makefiles |
 | [ASCII aliases](../AliasesASCII.md) | Compatibility aliases for legacy modules with accents or spaces |
 | [Complexity and Big-O](./Algorithms.md) | Fundamentals of time and space complexity analysis |

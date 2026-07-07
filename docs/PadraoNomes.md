@@ -20,6 +20,7 @@ Exemplos recomendados:
 - `ListaDuplamenteEncadeada`
 - `GrafoListaAdjacencia`
 - `AVL`
+- `Complexidade`
 
 ## Módulos antigos
 
@@ -28,9 +29,8 @@ Alguns módulos antigos ainda usam acentos ou espaços, como:
 - `Árvore`
 - `Métodos de Ordenação`
 - `Métodos de Busca`
-- `Custo Computacional e Complexidade`
 
-Eles foram mantidos para evitar quebra de links, histórico e materiais já existentes. Uma renomeação completa pode ser feita em uma versão maior, com aliases ou documentação de migração.
+Eles foram mantidos dentro de categorias com aliases ASCII quando necessário. Novos módulos devem entrar na categoria adequada, por exemplo `Lineares/`, `Arvores/`, `Grafos/`, `Ordenacao/`, `Busca/` ou `Complexidade/`.
 
 ## Justificativa
 

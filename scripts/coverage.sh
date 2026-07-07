@@ -2,13 +2,13 @@
 set -euo pipefail
 
 modules=(
-  "Heap"
-  "TabelaHash"
-  "ListaEncadeada"
-  "ListaDuplamenteEncadeada"
-  "GrafoListaAdjacencia"
-  "AVL"
-  "AlgoritmosGrafos"
+  "Heaps/Heap"
+  "Hash/TabelaHash"
+  "Lineares/ListaEncadeada"
+  "Lineares/ListaDuplamenteEncadeada"
+  "Grafos/GrafoListaAdjacencia"
+  "Arvores/AVL"
+  "Grafos/AlgoritmosGrafos"
 )
 
 coverage_flags="-pedantic-errors -Wall -Wextra -Werror -g -O0 --coverage"
@@ -21,13 +21,17 @@ echo "== Coverage report ==" | tee coverage/summary.txt
 for module in "${modules[@]}"; do
   echo "-- ${module} --" | tee -a coverage/summary.txt
   make -C "${module}" clean >/dev/null
-  make -C "${module}" test CCFLAGS="${coverage_flags}" LDFLAGS="${coverage_ldflags}" >/tmp/coverage-${module}.log 2>&1
+  log_name=${module//\//-}
+  make -C "${module}" test CCFLAGS="${coverage_flags}" LDFLAGS="${coverage_ldflags}" >/tmp/coverage-${log_name}.log 2>&1
 
   if command -v gcov >/dev/null 2>&1; then
-    find "${module}/build/objects" -name '*.gcda' -print0 \
-      | xargs -0 -r gcov -o "${module}/build/objects/src" \
-      | tee -a coverage/summary.txt >/dev/null || true
-    mv ./*.gcov coverage/gcov/ 2>/dev/null || true
+    (
+      cd "${module}"
+      find build/objects/src -name '*.gcda' -print0 \
+        | xargs -0 -r gcov -o build/objects/src
+    ) | tee -a coverage/summary.txt >/dev/null || true
+
+    find "${module}" -maxdepth 1 -name '*.gcov' -exec mv {} coverage/gcov/ \; 2>/dev/null || true
   fi
 
   make -C "${module}" clean >/dev/null

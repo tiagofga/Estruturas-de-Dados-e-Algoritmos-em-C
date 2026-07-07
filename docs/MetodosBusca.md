@@ -1,7 +1,7 @@
 # Métodos de Busca — Referência de Complexidade
 
 Este documento é a referência detalhada dos algoritmos de busca implementados no módulo
-[Métodos de Busca](../Métodos%20de%20Busca).
+[Métodos de Busca](../Busca/Métodos%20de%20Busca).
 
 ---
 

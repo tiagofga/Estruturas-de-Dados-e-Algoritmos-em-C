@@ -131,7 +131,7 @@ int main(void) {
 ## Compilar e executar
 
 ```bash
-cd Heap
+cd Heaps/Heap
 make
 make run
 make test

@@ -19,6 +19,7 @@ Referência completa de cada módulo do repositório.
 | [Grafo por lista de adjacência](./GrafoListaAdjacencia.md) | Grafo esparso com pesos positivos, BFS, DFS e Dijkstra |
 | [Algoritmos avançados de grafos](./AlgoritmosGrafos.md) | Union-Find opaco, Kruskal, Prim, Bellman-Ford e Floyd-Warshall |
 | [Benchmarks](./Benchmarks.md) | Benchmark formal com saída CSV |
+| [Organização do repositório](./OrganizacaoRepositorio.md) | Separação entre módulos, helpers compartilhados, documentação, exercícios e benchmarks |
 | [Makefiles](./Makefiles.md) | Padrão de build modular e referências externas dos Makefiles-base |
 | [Aliases ASCII](./AliasesASCII.md) | Aliases para módulos antigos com acentos ou espaços |
 | [Complexidade (Big-O)](./Algoritmos.md#notação-de-complexidade-big-o) | Fundamentos de análise de complexidade de tempo e espaço |

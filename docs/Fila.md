@@ -218,7 +218,7 @@ int main(void) {
 ## Compilar e executar
 
 ```bash
-cd Fila
+cd Lineares/Fila
 make        # compila o exemplo em build/app
 make run    # executa o exemplo
 make test   # executa os testes automatizados

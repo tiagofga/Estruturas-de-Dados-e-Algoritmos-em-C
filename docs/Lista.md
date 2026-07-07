@@ -246,7 +246,7 @@ int main(void) {
 ## Compilar e executar
 
 ```bash
-cd Lista
+cd Lineares/Lista
 make        # compila o exemplo em build/app
 make run    # executa o exemplo
 make test   # executa os testes automatizados

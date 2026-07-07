@@ -19,20 +19,20 @@ jobs:
       fail-fast: false
       matrix:
         module:
-          - Lista
-          - Fila
-          - Pilha
-          - Heap
-          - Arvore
-          - Grafo
-          - TabelaHash
-          - ListaEncadeada
-          - ListaDuplamenteEncadeada
-          - GrafoListaAdjacencia
-          - AVL
-          - AlgoritmosGrafos
-          - MetodosOrdenacao
-          - MetodosBusca
+          - Lineares/Lista
+          - Lineares/Fila
+          - Lineares/Pilha
+          - Heaps/Heap
+          - Arvores/Arvore
+          - Grafos/Grafo
+          - Hash/TabelaHash
+          - Lineares/ListaEncadeada
+          - Lineares/ListaDuplamenteEncadeada
+          - Grafos/GrafoListaAdjacencia
+          - Arvores/AVL
+          - Grafos/AlgoritmosGrafos
+          - Ordenacao/MetodosOrdenacao
+          - Busca/MetodosBusca
 
     steps:
       - name: Checkout
@@ -53,13 +53,13 @@ jobs:
       fail-fast: false
       matrix:
         module:
-          - Heap
-          - TabelaHash
-          - ListaEncadeada
-          - ListaDuplamenteEncadeada
-          - GrafoListaAdjacencia
-          - AVL
-          - AlgoritmosGrafos
+          - Heaps/Heap
+          - Hash/TabelaHash
+          - Lineares/ListaEncadeada
+          - Lineares/ListaDuplamenteEncadeada
+          - Grafos/GrafoListaAdjacencia
+          - Arvores/AVL
+          - Grafos/AlgoritmosGrafos
 
     steps:
       - name: Checkout

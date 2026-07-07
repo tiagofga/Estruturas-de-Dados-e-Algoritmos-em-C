@@ -22,22 +22,22 @@ Educational repository with implementations of data structures and algorithms in
 
 | Module | Documentation | Description | Main complexity |
 |--------|---------------|-------------|-----------------|
-| [ADT](./TAD) | [docs/en/TAD.md](./docs/en/TAD.md) | Abstract Data Type — interface vs. implementation | — |
-| [List](./Lista) | [docs/en/List.md](./docs/en/List.md) | Dynamic sequential list, static version, linear/binary search, and configurable sorting | O(1) end insertion, O(n) middle operations |
-| [SinglyLinkedList](./ListaEncadeada) | [docs/en/LinkedLists.md](./docs/en/LinkedLists.md) | Singly linked list | O(1) front insertion, O(n) search/removal |
-| [DoublyLinkedList](./ListaDuplamenteEncadeada) | [docs/en/LinkedLists.md](./docs/en/LinkedLists.md) | Doubly linked list | O(1) front/back insertion, O(n) search/removal |
-| [Queue](./Fila) | [docs/en/Queue.md](./docs/en/Queue.md) | Dynamic circular queue (FIFO) and static version, both with fixed capacity | O(1) enqueue/dequeue |
-| [Stack](./Pilha) | [docs/en/Stack.md](./docs/en/Stack.md) | Dynamic sequential stack (LIFO) and static version, both with fixed capacity | O(1) push/pop |
-| [HashTable](./TabelaHash) | [docs/en/HashTable.md](./docs/en/HashTable.md) | Opaque hash table with separate chaining | O(1) average, O(n) worst case |
-| [Heap](./Heap) | [docs/en/Heap.md](./docs/en/Heap.md) | Dynamic max heap, priority queue, and heap sort | O(1) peek, O(log n) insert/remove |
-| [Tree](./Árvore) / [Arvore](./Arvore) | [docs/en/Tree.md](./docs/en/Tree.md) | Binary Search Tree (BST) + AVL/Red-Black concepts | O(log n) average, O(n) worst case |
-| [AVL](./AVL) | [docs/en/AVL.md](./docs/en/AVL.md) | Opaque AVL tree with insertion, removal, rotations, and automatic balancing | O(log n) search/insert/remove |
-| [Graph](./Grafo) | [docs/en/Graph.md](./docs/en/Graph.md) | Graph using an adjacency matrix, positive weights, BFS/DFS/Dijkstra, and topological sort | O(1) edge lookup |
-| [AdjacencyListGraph](./GrafoListaAdjacencia) | [docs/en/AdjacencyListGraph.md](./docs/en/AdjacencyListGraph.md) | Graph using adjacency lists, positive weights, BFS/DFS, and Dijkstra | O(V + E) BFS/DFS |
-| [GraphAlgorithms](./AlgoritmosGrafos) | [docs/en/AdvancedGraphAlgorithms.md](./docs/en/AdvancedGraphAlgorithms.md) | Classic algorithms: Union-Find, Kruskal, Prim, Bellman-Ford, and Floyd-Warshall | O(E log E), O(VE), O(V³) |
-| [Sorting Methods](./Métodos%20de%20Ordenação) / [MetodosOrdenacao](./MetodosOrdenacao) | [docs/en/SortingMethods.md](./docs/en/SortingMethods.md) | Bubble, Insertion, Selection, Merge, Quick, and Heap Sort | O(n²) to O(n log n) |
-| [Search Methods](./Métodos%20de%20Busca) / [MetodosBusca](./MetodosBusca) | [docs/en/SearchMethods.md](./docs/en/SearchMethods.md) | Linear, Binary, Jump, Interpolation, and Exponential Search | O(n) to O(log n) |
-| [Computational Cost and Complexity](./Custo%20Computacional%20e%20Complexidade) | [docs/en/ComputationalCost.md](./docs/en/ComputationalCost.md) | Time/space cost, growth rates, and asymptotic analysis | O(1) to O(2ⁿ) |
+| [ADT](./Fundamentos/TAD) | [docs/en/TAD.md](./docs/en/TAD.md) | Abstract Data Type — interface vs. implementation | — |
+| [List](./Lineares/Lista) | [docs/en/List.md](./docs/en/List.md) | Dynamic sequential list, static version, linear/binary search, and configurable sorting | O(1) end insertion, O(n) middle operations |
+| [SinglyLinkedList](./Lineares/ListaEncadeada) | [docs/en/LinkedLists.md](./docs/en/LinkedLists.md) | Singly linked list | O(1) front insertion, O(n) search/removal |
+| [DoublyLinkedList](./Lineares/ListaDuplamenteEncadeada) | [docs/en/LinkedLists.md](./docs/en/LinkedLists.md) | Doubly linked list | O(1) front/back insertion, O(n) search/removal |
+| [Queue](./Lineares/Fila) | [docs/en/Queue.md](./docs/en/Queue.md) | Dynamic circular queue (FIFO) and static version, both with fixed capacity | O(1) enqueue/dequeue |
+| [Stack](./Lineares/Pilha) | [docs/en/Stack.md](./docs/en/Stack.md) | Dynamic sequential stack (LIFO) and static version, both with fixed capacity | O(1) push/pop |
+| [HashTable](./Hash/TabelaHash) | [docs/en/HashTable.md](./docs/en/HashTable.md) | Opaque hash table with separate chaining | O(1) average, O(n) worst case |
+| [Heap](./Heaps/Heap) | [docs/en/Heap.md](./docs/en/Heap.md) | Dynamic max heap, priority queue, and heap sort | O(1) peek, O(log n) insert/remove |
+| [Tree](./Arvores/Árvore) / [Arvore](./Arvores/Arvore) | [docs/en/Tree.md](./docs/en/Tree.md) | Binary Search Tree (BST) + AVL/Red-Black concepts | O(log n) average, O(n) worst case |
+| [AVL](./Arvores/AVL) | [docs/en/AVL.md](./docs/en/AVL.md) | Opaque AVL tree with insertion, removal, rotations, and automatic balancing | O(log n) search/insert/remove |
+| [Graph](./Grafos/Grafo) | [docs/en/Graph.md](./docs/en/Graph.md) | Graph using an adjacency matrix, positive weights, BFS/DFS/Dijkstra, and topological sort | O(1) edge lookup |
+| [AdjacencyListGraph](./Grafos/GrafoListaAdjacencia) | [docs/en/AdjacencyListGraph.md](./docs/en/AdjacencyListGraph.md) | Graph using adjacency lists, positive weights, BFS/DFS, and Dijkstra | O(V + E) BFS/DFS |
+| [GraphAlgorithms](./Grafos/AlgoritmosGrafos) | [docs/en/AdvancedGraphAlgorithms.md](./docs/en/AdvancedGraphAlgorithms.md) | Classic algorithms: Union-Find, Kruskal, Prim, Bellman-Ford, and Floyd-Warshall | O(E log E), O(VE), O(V³) |
+| [Sorting Methods](./Ordenacao/Métodos%20de%20Ordenação) / [MetodosOrdenacao](./Ordenacao/MetodosOrdenacao) | [docs/en/SortingMethods.md](./docs/en/SortingMethods.md) | Bubble, Insertion, Selection, Merge, Quick, and Heap Sort | O(n²) to O(n log n) |
+| [Search Methods](./Busca/Métodos%20de%20Busca) / [MetodosBusca](./Busca/MetodosBusca) | [docs/en/SearchMethods.md](./docs/en/SearchMethods.md) | Linear, Binary, Jump, Interpolation, and Exponential Search | O(n) to O(log n) |
+| [Computational Cost and Complexity](./Complexidade) | [docs/en/ComputationalCost.md](./docs/en/ComputationalCost.md) | Time/space cost, growth rates, and asymptotic analysis | O(1) to O(2ⁿ) |
 
 ---
 
@@ -86,6 +86,17 @@ gcov --version
 
 | Path | Contents |
 |------|----------|
+| `Makefile` | Global targets for build, tests, sanitizers, coverage, benchmarks, and cleanup |
+| `Fundamentos/` | ADT and base concepts |
+| `Lineares/` | List, linked lists, queue, and stack |
+| `Arvores/` | BST, ASCII alias, and AVL |
+| `Grafos/` | Adjacency matrix, adjacency list, and classic graph algorithms |
+| `Heaps/` | Max heap and priority queue |
+| `Hash/` | Hash table |
+| `Ordenacao/` | Sorting methods and ASCII alias |
+| `Busca/` | Search methods and ASCII alias |
+| `Complexidade/` | Introductory explanation dedicated to computational cost and Big-O |
+| `include/comum/` | Shared memory-safety and allocation helpers |
 | `*/include/` | Public headers for each module |
 | `*/src/` | Implementations and executable examples |
 | `*/tests/` | Automated tests per module |
@@ -120,7 +131,7 @@ make clean
 ### Build and run one module
 
 ```bash
-cd AlgoritmosGrafos  # or TabelaHash, ListaEncadeada, GrafoListaAdjacencia, AVL etc.
+cd Grafos/AlgoritmosGrafos  # or Hash/TabelaHash, Lineares/ListaEncadeada, Grafos/GrafoListaAdjacencia, Arvores/AVL etc.
 make
 make run
 make test
@@ -146,6 +157,7 @@ The [`docs/`](./docs) folder contains the main Portuguese documentation. The Eng
 - [Graph with adjacency list](./docs/en/AdjacencyListGraph.md)
 - [Advanced graph algorithms](./docs/en/AdvancedGraphAlgorithms.md)
 - [Benchmarks](./docs/Benchmarks.md)
+- [Repository organization](./docs/en/RepositoryOrganization.md)
 - [Makefiles and build pattern](./docs/en/Makefiles.md)
 - [ASCII aliases](./docs/AliasesASCII.md)
 - [Complexity and Big-O](./docs/en/Algorithms.md)

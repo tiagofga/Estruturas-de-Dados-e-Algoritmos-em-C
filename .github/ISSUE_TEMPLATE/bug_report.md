@@ -13,7 +13,7 @@ assignees: ''
 
 Passos para reproduzir o comportamento:
 
-1. Módulo afetado: `Lista` / `Fila` / `Árvore` / `Grafo` (apague os que não se aplicam)
+1. Módulo afetado: `Lineares/Lista` / `Lineares/Fila` / `Arvores/Árvore` / `Grafos/Grafo` (apague os que não se aplicam)
 2. Comando executado: `make ...`
 3. O que aconteceu:
 

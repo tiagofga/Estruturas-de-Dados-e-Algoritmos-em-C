@@ -6,21 +6,21 @@ Este roteiro organiza o repositório como apoio a uma disciplina de Estruturas d
 
 | Semana | Tema | Módulos sugeridos | Atividade prática |
 |--------|------|-------------------|-------------------|
-| 1 | Revisão de C, ponteiros, alocação dinâmica e Makefile | `TAD`, `docs/Algoritmos.md` | Compilar módulos e executar primeiros testes |
-| 2 | Tipo Abstrato de Dados e encapsulamento | `TAD` | Separar interface `.h` e implementação `.c` em um pequeno TAD |
-| 3 | Lista sequencial dinâmica | `Lista` | Implementar remoção por posição e testes |
-| 4 | Listas encadeadas | `ListaEncadeada`, `ListaDuplamenteEncadeada` | Comparar inserção, busca e remoção em listas sequenciais e encadeadas |
-| 5 | Pilhas | `Pilha` | Verificar parênteses balanceados com pilha |
-| 6 | Filas | `Fila` | Simular fila de atendimento e fila circular |
-| 7 | Busca e análise de complexidade | `Métodos de Busca`, `Custo Computacional e Complexidade` | Comparar busca linear e binária |
-| 8 | Ordenação quadrática | `Métodos de Ordenação` | Instrumentar comparações em Bubble, Insertion e Selection Sort |
-| 9 | Ordenação eficiente | `Métodos de Ordenação`, `Heap` | Comparar Merge Sort, Quick Sort e Heap Sort |
-| 10 | Heap e fila de prioridade | `Heap` | Implementar min heap ou fila de prioridade com pares `(prioridade, valor)` |
-| 11 | Tabela hash | `TabelaHash` | Medir colisões e fator de carga com diferentes capacidades |
-| 12 | Árvores binárias de busca | `Árvore` | Implementar remoção em BST e comparar casos de árvore degenerada |
-| 13 | AVL | `AVL` | Testar rotações, inserções e remoções balanceadas |
-| 14 | Grafos básicos | `Grafo`, `GrafoListaAdjacencia` | Comparar matriz e lista de adjacência em grafos esparsos e densos |
-| 15 | Algoritmos avançados de grafos | `AlgoritmosGrafos` | Resolver MST com Kruskal/Prim e caminhos mínimos com Bellman-Ford/Floyd-Warshall |
+| 1 | Revisão de C, ponteiros, alocação dinâmica e Makefile | `Fundamentos/TAD`, `docs/Algoritmos.md` | Compilar módulos e executar primeiros testes |
+| 2 | Tipo Abstrato de Dados e encapsulamento | `Fundamentos/TAD` | Separar interface `.h` e implementação `.c` em um pequeno TAD |
+| 3 | Lista sequencial dinâmica | `Lineares/Lista` | Implementar remoção por posição e testes |
+| 4 | Listas encadeadas | `Lineares/ListaEncadeada`, `Lineares/ListaDuplamenteEncadeada` | Comparar inserção, busca e remoção em listas sequenciais e encadeadas |
+| 5 | Pilhas | `Lineares/Pilha` | Verificar parênteses balanceados com pilha |
+| 6 | Filas | `Lineares/Fila` | Simular fila de atendimento e fila circular |
+| 7 | Busca e análise de complexidade | `Busca/Métodos de Busca`, `Complexidade` | Comparar busca linear e binária |
+| 8 | Ordenação quadrática | `Ordenacao/Métodos de Ordenação` | Instrumentar comparações em Bubble, Insertion e Selection Sort |
+| 9 | Ordenação eficiente | `Ordenacao/Métodos de Ordenação`, `Heaps/Heap` | Comparar Merge Sort, Quick Sort e Heap Sort |
+| 10 | Heap e fila de prioridade | `Heaps/Heap` | Implementar min heap ou fila de prioridade com pares `(prioridade, valor)` |
+| 11 | Tabela hash | `Hash/TabelaHash` | Medir colisões e fator de carga com diferentes capacidades |
+| 12 | Árvores binárias de busca | `Arvores/Árvore` | Implementar remoção em BST e comparar casos de árvore degenerada |
+| 13 | AVL | `Arvores/AVL` | Testar rotações, inserções e remoções balanceadas |
+| 14 | Grafos básicos | `Grafos/Grafo`, `Grafos/GrafoListaAdjacencia` | Comparar matriz e lista de adjacência em grafos esparsos e densos |
+| 15 | Algoritmos avançados de grafos | `Grafos/AlgoritmosGrafos` | Resolver MST com Kruskal/Prim e caminhos mínimos com Bellman-Ford/Floyd-Warshall |
 
 ## Avaliações sugeridas
 

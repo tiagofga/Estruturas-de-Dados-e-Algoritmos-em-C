@@ -13,11 +13,14 @@ This project uses C with manual allocation, so implementations follow a small co
 
 ## Shared Helper
 
-[`include/memoria_segura.h`](../../include/memoria_segura.h) centralizes the size checks used by the modules:
+[`include/comum/memoria_segura.h`](../../include/comum/memoria_segura.h) centralizes the size checks used by the modules:
 
 ```c
 memoria_multiplicacao_valida(quantidade, sizeof(Tipo))
 memoria_dobro_valido(capacidade, &nova_capacidade)
+memoria_alocar_vetor(quantidade, sizeof(Tipo))
+memoria_alocar_vetor_zero(quantidade, sizeof(Tipo))
+memoria_realocar_vetor(ptr, quantidade, sizeof(Tipo))
 ```
 
 These functions are `static inline`, so any module can include them without adding extra linker symbols.

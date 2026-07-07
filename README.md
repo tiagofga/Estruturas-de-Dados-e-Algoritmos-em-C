@@ -22,22 +22,22 @@ Repositório educacional com implementações de estruturas de dados e algoritmo
 
 | Módulo | Documentação | Descrição | Complexidade principal |
 |--------|-------------|-----------|------------------------|
-| [TAD](./TAD) | [docs/TAD.md](./docs/TAD.md) | Tipo Abstrato de Dados — conceito de interface vs. implementação | — |
-| [Lista](./Lista) | [docs/Lista.md](./docs/Lista.md) | Lista sequencial dinâmica, versão estática, busca linear/binária e ordenação configurável | O(1) fim, O(n) meio |
-| [ListaEncadeada](./ListaEncadeada) | [docs/ListasEncadeadas.md](./docs/ListasEncadeadas.md) | Lista simplesmente encadeada | O(1) início, O(n) busca/remoção |
-| [ListaDuplamenteEncadeada](./ListaDuplamenteEncadeada) | [docs/ListasEncadeadas.md](./docs/ListasEncadeadas.md) | Lista duplamente encadeada | O(1) início/fim, O(n) busca/remoção |
-| [Fila](./Fila) | [docs/Fila.md](./docs/Fila.md) | Fila circular (FIFO) dinâmica e versão estática, ambas com capacidade fixa | O(1) enfileirar/desenfileirar |
-| [Pilha](./Pilha) | [docs/Pilha.md](./docs/Pilha.md) | Pilha sequencial (LIFO) dinâmica e versão estática, ambas com capacidade fixa | O(1) empilhar/desempilhar |
-| [TabelaHash](./TabelaHash) | [docs/TabelaHash.md](./docs/TabelaHash.md) | Tabela hash opaca com encadeamento separado | O(1) médio, O(n) pior caso |
-| [Heap](./Heap) | [docs/Heap.md](./docs/Heap.md) | Heap máximo dinâmico, fila de prioridade e Heap Sort | O(1) consultar raiz, O(log n) inserir/remover |
-| [Árvore](./Árvore) / [Arvore](./Arvore) | [docs/Arvore.md](./docs/Arvore.md) | Árvore Binária de Busca (BST) + conceitos AVL/Rubro-Negra | O(log n) médio, O(n) pior |
-| [AVL](./AVL) | [docs/AVL.md](./docs/AVL.md) | Árvore AVL com inserção, remoção, rotações e balanceamento automático | O(log n) buscar/inserir/remover |
-| [Grafo](./Grafo) | [docs/Grafo.md](./docs/Grafo.md) | Grafo com matriz de adjacência, pesos positivos, BFS/DFS/Dijkstra e ordenação topológica | O(1) consulta de aresta |
-| [GrafoListaAdjacencia](./GrafoListaAdjacencia) | [docs/GrafoListaAdjacencia.md](./docs/GrafoListaAdjacencia.md) | Grafo com lista de adjacência, pesos positivos, BFS/DFS e Dijkstra | O(V + E) BFS/DFS |
-| [AlgoritmosGrafos](./AlgoritmosGrafos) | [docs/AlgoritmosGrafos.md](./docs/AlgoritmosGrafos.md) | Algoritmos clássicos: Union-Find, Kruskal, Prim, Bellman-Ford e Floyd-Warshall | O(E log E), O(VE), O(V³) |
-| [Métodos de Ordenação](./Métodos%20de%20Ordenação) / [MetodosOrdenacao](./MetodosOrdenacao) | [docs/MetodosOrdenacao.md](./docs/MetodosOrdenacao.md) | Bubble, Insertion, Selection, Merge, Quick e Heap Sort para vetores | O(n²) a O(n log n) |
-| [Métodos de Busca](./Métodos%20de%20Busca) / [MetodosBusca](./MetodosBusca) | [docs/MetodosBusca.md](./docs/MetodosBusca.md) | Busca Linear, Binária, por Salto, por Interpolação e Exponencial para vetores | O(n) a O(log n) |
-| [Custo Computacional e Complexidade](./Custo%20Computacional%20e%20Complexidade) | [docs/CustoComputacional.md](./docs/CustoComputacional.md) | Introdução ao custo de tempo/espaço, ordens de crescimento e análise assintótica | O(1) a O(2ⁿ) |
+| [TAD](./Fundamentos/TAD) | [docs/TAD.md](./docs/TAD.md) | Tipo Abstrato de Dados — conceito de interface vs. implementação | — |
+| [Lista](./Lineares/Lista) | [docs/Lista.md](./docs/Lista.md) | Lista sequencial dinâmica, versão estática, busca linear/binária e ordenação configurável | O(1) fim, O(n) meio |
+| [ListaEncadeada](./Lineares/ListaEncadeada) | [docs/ListasEncadeadas.md](./docs/ListasEncadeadas.md) | Lista simplesmente encadeada | O(1) início, O(n) busca/remoção |
+| [ListaDuplamenteEncadeada](./Lineares/ListaDuplamenteEncadeada) | [docs/ListasEncadeadas.md](./docs/ListasEncadeadas.md) | Lista duplamente encadeada | O(1) início/fim, O(n) busca/remoção |
+| [Fila](./Lineares/Fila) | [docs/Fila.md](./docs/Fila.md) | Fila circular (FIFO) dinâmica e versão estática, ambas com capacidade fixa | O(1) enfileirar/desenfileirar |
+| [Pilha](./Lineares/Pilha) | [docs/Pilha.md](./docs/Pilha.md) | Pilha sequencial (LIFO) dinâmica e versão estática, ambas com capacidade fixa | O(1) empilhar/desempilhar |
+| [TabelaHash](./Hash/TabelaHash) | [docs/TabelaHash.md](./docs/TabelaHash.md) | Tabela hash opaca com encadeamento separado | O(1) médio, O(n) pior caso |
+| [Heap](./Heaps/Heap) | [docs/Heap.md](./docs/Heap.md) | Heap máximo dinâmico, fila de prioridade e Heap Sort | O(1) consultar raiz, O(log n) inserir/remover |
+| [Árvore](./Arvores/Árvore) / [Arvore](./Arvores/Arvore) | [docs/Arvore.md](./docs/Arvore.md) | Árvore Binária de Busca (BST) + conceitos AVL/Rubro-Negra | O(log n) médio, O(n) pior |
+| [AVL](./Arvores/AVL) | [docs/AVL.md](./docs/AVL.md) | Árvore AVL com inserção, remoção, rotações e balanceamento automático | O(log n) buscar/inserir/remover |
+| [Grafo](./Grafos/Grafo) | [docs/Grafo.md](./docs/Grafo.md) | Grafo com matriz de adjacência, pesos positivos, BFS/DFS/Dijkstra e ordenação topológica | O(1) consulta de aresta |
+| [GrafoListaAdjacencia](./Grafos/GrafoListaAdjacencia) | [docs/GrafoListaAdjacencia.md](./docs/GrafoListaAdjacencia.md) | Grafo com lista de adjacência, pesos positivos, BFS/DFS e Dijkstra | O(V + E) BFS/DFS |
+| [AlgoritmosGrafos](./Grafos/AlgoritmosGrafos) | [docs/AlgoritmosGrafos.md](./docs/AlgoritmosGrafos.md) | Algoritmos clássicos: Union-Find, Kruskal, Prim, Bellman-Ford e Floyd-Warshall | O(E log E), O(VE), O(V³) |
+| [Métodos de Ordenação](./Ordenacao/Métodos%20de%20Ordenação) / [MetodosOrdenacao](./Ordenacao/MetodosOrdenacao) | [docs/MetodosOrdenacao.md](./docs/MetodosOrdenacao.md) | Bubble, Insertion, Selection, Merge, Quick e Heap Sort para vetores | O(n²) a O(n log n) |
+| [Métodos de Busca](./Busca/Métodos%20de%20Busca) / [MetodosBusca](./Busca/MetodosBusca) | [docs/MetodosBusca.md](./docs/MetodosBusca.md) | Busca Linear, Binária, por Salto, por Interpolação e Exponencial para vetores | O(n) a O(log n) |
+| [Custo Computacional e Complexidade](./Complexidade) | [docs/CustoComputacional.md](./docs/CustoComputacional.md) | Introdução ao custo de tempo/espaço, ordens de crescimento e análise assintótica | O(1) a O(2ⁿ) |
 
 ---
 
@@ -86,6 +86,17 @@ gcov --version
 
 | Caminho | Conteúdo |
 |---------|----------|
+| `Makefile` | Alvos globais para build, testes, sanitizers, cobertura, benchmarks e limpeza |
+| `Fundamentos/` | TAD e conceitos-base |
+| `Lineares/` | Lista, lista encadeada, lista duplamente encadeada, fila e pilha |
+| `Arvores/` | BST, alias ASCII e AVL |
+| `Grafos/` | Matriz de adjacência, lista de adjacência e algoritmos clássicos de grafos |
+| `Heaps/` | Heap máximo e fila de prioridade |
+| `Hash/` | Tabela hash |
+| `Ordenacao/` | Métodos de ordenação e alias ASCII |
+| `Busca/` | Métodos de busca e alias ASCII |
+| `Complexidade/` | Explicação introdutória dedicada a custo computacional e Big-O |
+| `include/comum/` | Helpers compartilhados de segurança de memória e alocação |
 | `*/include/` | Headers públicos de cada módulo |
 | `*/src/` | Implementações e exemplos executáveis |
 | `*/tests/` | Testes automatizados por módulo |
@@ -120,7 +131,7 @@ make clean
 ### Compilar e executar um módulo
 
 ```bash
-cd AlgoritmosGrafos  # ou TabelaHash, ListaEncadeada, GrafoListaAdjacencia, AVL etc.
+cd Grafos/AlgoritmosGrafos  # ou Hash/TabelaHash, Lineares/ListaEncadeada, Grafos/GrafoListaAdjacencia, Arvores/AVL etc.
 make
 make run
 make test
@@ -146,6 +157,7 @@ A pasta [`docs/`](./docs) contém a documentação principal em português. A ve
 - [Grafo com lista de adjacência](./docs/GrafoListaAdjacencia.md)
 - [Algoritmos avançados de grafos](./docs/AlgoritmosGrafos.md)
 - [Benchmarks](./docs/Benchmarks.md)
+- [Organização do repositório](./docs/OrganizacaoRepositorio.md)
 - [Makefiles e padrão de build](./docs/Makefiles.md)
 - [Aliases ASCII](./docs/AliasesASCII.md)
 - [Complexidade (Big-O)](./docs/Algoritmos.md#notação-de-complexidade-big-o)

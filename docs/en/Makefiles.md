@@ -21,14 +21,15 @@ The current modules extend that base model with:
 - ASCII aliases for legacy modules with accents or spaces;
 - strict flags: `-pedantic-errors -Wall -Wextra -Werror`.
 
-For new modules, prefer ASCII names without spaces and follow this structure:
+For new modules, prefer ASCII names without spaces, choose the appropriate conceptual category, and follow this structure:
 
 ```text
-Module/
-├── include/
-├── src/
-├── tests/
-└── Makefile
+Category/
+└── Module/
+    ├── include/
+    ├── src/
+    ├── tests/
+    └── Makefile
 ```
 
 Back to the [documentation index](./README.md).

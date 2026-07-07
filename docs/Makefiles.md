@@ -21,14 +21,15 @@ Os módulos atuais evoluem esse modelo base com:
 - aliases ASCII para módulos antigos com acentos ou espaços;
 - flags rigorosas: `-pedantic-errors -Wall -Wextra -Werror`.
 
-Para novos módulos, prefira nomes ASCII sem espaços e siga a estrutura:
+Para novos módulos, prefira nomes ASCII sem espaços, escolha a categoria conceitual adequada e siga a estrutura:
 
 ```text
-Modulo/
-├── include/
-├── src/
-├── tests/
-└── Makefile
+Categoria/
+└── Modulo/
+    ├── include/
+    ├── src/
+    ├── tests/
+    └── Makefile
 ```
 
 Voltar para o [índice da documentação](./README.md).

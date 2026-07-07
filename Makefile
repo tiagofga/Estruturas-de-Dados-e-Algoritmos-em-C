@@ -1,7 +1,7 @@
 .RECIPEPREFIX := >
 
-MODULES := Lista Fila Pilha Arvore Grafo Heap TabelaHash ListaEncadeada ListaDuplamenteEncadeada GrafoListaAdjacencia AVL AlgoritmosGrafos MetodosOrdenacao MetodosBusca
-SANITIZE_MODULES := TabelaHash ListaEncadeada ListaDuplamenteEncadeada GrafoListaAdjacencia AVL Heap AlgoritmosGrafos
+MODULES := Lineares/Lista Lineares/Fila Lineares/Pilha Arvores/Arvore Grafos/Grafo Heaps/Heap Hash/TabelaHash Lineares/ListaEncadeada Lineares/ListaDuplamenteEncadeada Grafos/GrafoListaAdjacencia Arvores/AVL Grafos/AlgoritmosGrafos Ordenacao/MetodosOrdenacao Busca/MetodosBusca
+SANITIZE_MODULES := Hash/TabelaHash Lineares/ListaEncadeada Lineares/ListaDuplamenteEncadeada Grafos/GrafoListaAdjacencia Arvores/AVL Heaps/Heap Grafos/AlgoritmosGrafos
 
 .PHONY: all test sanitize coverage benchmark clean \
         run-lista run-fila run-pilha run-arvore run-grafo run-heap \
@@ -29,43 +29,43 @@ clean:
 >-@rm -rf coverage
 
 run-lista:
->$(MAKE) -C Lista run
+>$(MAKE) -C Lineares/Lista run
 
 run-fila:
->$(MAKE) -C Fila run
+>$(MAKE) -C Lineares/Fila run
 
 run-pilha:
->$(MAKE) -C Pilha run
+>$(MAKE) -C Lineares/Pilha run
 
 run-arvore:
->$(MAKE) -C Arvore run
+>$(MAKE) -C Arvores/Arvore run
 
 run-grafo:
->$(MAKE) -C Grafo run
+>$(MAKE) -C Grafos/Grafo run
 
 run-heap:
->$(MAKE) -C Heap run
+>$(MAKE) -C Heaps/Heap run
 
 run-tabela-hash:
->$(MAKE) -C TabelaHash run
+>$(MAKE) -C Hash/TabelaHash run
 
 run-lista-encadeada:
->$(MAKE) -C ListaEncadeada run
+>$(MAKE) -C Lineares/ListaEncadeada run
 
 run-lista-dupla:
->$(MAKE) -C ListaDuplamenteEncadeada run
+>$(MAKE) -C Lineares/ListaDuplamenteEncadeada run
 
 run-grafo-lista:
->$(MAKE) -C GrafoListaAdjacencia run
+>$(MAKE) -C Grafos/GrafoListaAdjacencia run
 
 run-avl:
->$(MAKE) -C AVL run
+>$(MAKE) -C Arvores/AVL run
 
 run-algoritmos-grafos:
->$(MAKE) -C AlgoritmosGrafos run
+>$(MAKE) -C Grafos/AlgoritmosGrafos run
 
 run-ordenacao:
->$(MAKE) -C MetodosOrdenacao run
+>$(MAKE) -C Ordenacao/MetodosOrdenacao run
 
 run-busca:
->$(MAKE) -C MetodosBusca run
+>$(MAKE) -C Busca/MetodosBusca run

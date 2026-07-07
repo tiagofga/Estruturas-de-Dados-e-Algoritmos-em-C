@@ -133,7 +133,7 @@ int main(void) {
 ## Build and run
 
 ```bash
-cd Heap
+cd Heaps/Heap
 make
 make run
 make test

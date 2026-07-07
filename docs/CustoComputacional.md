@@ -96,16 +96,16 @@ Este conteúdo é apenas documental, então **não exige testes automatizados
 próprios**. Os testes automatizados do repositório continuam concentrados nas
 pastas `tests/` dos módulos implementados:
 
-- `Lista/tests/test_lista.c`
-- `Fila/tests/test_fila.c`
-- `Pilha/tests/test_pilha.c`
-- `Árvore/tests/test_arvore.c`
-- `Grafo/tests/test_grafo.c`
-- `Métodos de Ordenação/tests/test_ordenacao.c`
-- `Métodos de Busca/tests/test_busca.c`
+- `Lineares/Lista/tests/test_lista.c`
+- `Lineares/Fila/tests/test_fila.c`
+- `Lineares/Pilha/tests/test_pilha.c`
+- `Arvores/Árvore/tests/test_arvore.c`
+- `Grafos/Grafo/tests/test_grafo.c`
+- `Ordenacao/Métodos de Ordenação/tests/test_ordenacao.c`
+- `Busca/Métodos de Busca/tests/test_busca.c`
 
 ## Leitura complementar
 
-- [Resumo introdutório na pasta temática](../Custo%20Computacional%20e%20Complexidade/README.md)
+- [Resumo introdutório na pasta temática](../Complexidade/README.md)
 - [Big-O, métodos de busca e ordenação](./Algoritmos.md)
 - [Índice da documentação](./README.md)
