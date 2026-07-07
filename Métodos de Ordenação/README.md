@@ -121,6 +121,14 @@ make clean      # remove artefatos
 
 ---
 
+## Documentação
+
+- [Referência completa em português](../docs/MetodosOrdenacao.md)
+- [English reference](../docs/en/SortingMethods.md)
+- [Complexidade e Big-O](../docs/Algoritmos.md#notação-de-complexidade-big-o)
+
+---
+
 ## API pública (`ordenacao.h`)
 
 ```c

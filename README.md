@@ -23,18 +23,18 @@ Repositório educacional com implementações de estruturas de dados e algoritmo
 | Módulo | Documentação | Descrição | Complexidade principal |
 |--------|-------------|-----------|------------------------|
 | [TAD](./TAD) | [docs/TAD.md](./docs/TAD.md) | Tipo Abstrato de Dados — conceito de interface vs. implementação | — |
-| [Lista](./Lista) | [docs/Lista.md](./docs/Lista.md) | Lista sequencial dinâmica com busca linear/binária e ordenação configurável | O(1) fim, O(n) meio |
+| [Lista](./Lista) | [docs/Lista.md](./docs/Lista.md) | Lista sequencial dinâmica, versão estática, busca linear/binária e ordenação configurável | O(1) fim, O(n) meio |
 | [ListaEncadeada](./ListaEncadeada) | [docs/ListasEncadeadas.md](./docs/ListasEncadeadas.md) | Lista simplesmente encadeada | O(1) início, O(n) busca/remoção |
 | [ListaDuplamenteEncadeada](./ListaDuplamenteEncadeada) | [docs/ListasEncadeadas.md](./docs/ListasEncadeadas.md) | Lista duplamente encadeada | O(1) início/fim, O(n) busca/remoção |
-| [Fila](./Fila) | [docs/Fila.md](./docs/Fila.md) | Fila circular (FIFO) com capacidade fixa | O(1) enfileirar/desenfileirar |
-| [Pilha](./Pilha) | [docs/Pilha.md](./docs/Pilha.md) | Pilha sequencial (LIFO) com capacidade fixa | O(1) empilhar/desempilhar |
-| [TabelaHash](./TabelaHash) | [docs/TabelaHash.md](./docs/TabelaHash.md) | Tabela hash com encadeamento separado | O(1) médio, O(n) pior caso |
+| [Fila](./Fila) | [docs/Fila.md](./docs/Fila.md) | Fila circular (FIFO) dinâmica e versão estática, ambas com capacidade fixa | O(1) enfileirar/desenfileirar |
+| [Pilha](./Pilha) | [docs/Pilha.md](./docs/Pilha.md) | Pilha sequencial (LIFO) dinâmica e versão estática, ambas com capacidade fixa | O(1) empilhar/desempilhar |
+| [TabelaHash](./TabelaHash) | [docs/TabelaHash.md](./docs/TabelaHash.md) | Tabela hash opaca com encadeamento separado | O(1) médio, O(n) pior caso |
 | [Heap](./Heap) | [docs/Heap.md](./docs/Heap.md) | Heap máximo dinâmico, fila de prioridade e Heap Sort | O(1) consultar raiz, O(log n) inserir/remover |
 | [Árvore](./Árvore) / [Arvore](./Arvore) | [docs/Arvore.md](./docs/Arvore.md) | Árvore Binária de Busca (BST) + conceitos AVL/Rubro-Negra | O(log n) médio, O(n) pior |
 | [AVL](./AVL) | [docs/AVL.md](./docs/AVL.md) | Árvore AVL com inserção, remoção, rotações e balanceamento automático | O(log n) buscar/inserir/remover |
-| [Grafo](./Grafo) | [docs/Grafo.md](./docs/Grafo.md) | Grafo com matriz de adjacência + BFS/DFS/Dijkstra/topológica | O(1) consulta de aresta |
-| [GrafoListaAdjacencia](./GrafoListaAdjacencia) | [docs/GrafoListaAdjacencia.md](./docs/GrafoListaAdjacencia.md) | Grafo com lista de adjacência + BFS/DFS/Dijkstra | O(V + E) BFS/DFS |
-| [AlgoritmosGrafos](./AlgoritmosGrafos) | [docs/AlgoritmosGrafos.md](./docs/AlgoritmosGrafos.md) | Union-Find, Kruskal, Prim, Bellman-Ford e Floyd-Warshall | O(E log E), O(VE), O(V³) |
+| [Grafo](./Grafo) | [docs/Grafo.md](./docs/Grafo.md) | Grafo com matriz de adjacência, pesos positivos, BFS/DFS/Dijkstra e ordenação topológica | O(1) consulta de aresta |
+| [GrafoListaAdjacencia](./GrafoListaAdjacencia) | [docs/GrafoListaAdjacencia.md](./docs/GrafoListaAdjacencia.md) | Grafo com lista de adjacência, pesos positivos, BFS/DFS e Dijkstra | O(V + E) BFS/DFS |
+| [AlgoritmosGrafos](./AlgoritmosGrafos) | [docs/AlgoritmosGrafos.md](./docs/AlgoritmosGrafos.md) | Algoritmos clássicos: Union-Find, Kruskal, Prim, Bellman-Ford e Floyd-Warshall | O(E log E), O(VE), O(V³) |
 | [Métodos de Ordenação](./Métodos%20de%20Ordenação) / [MetodosOrdenacao](./MetodosOrdenacao) | [docs/MetodosOrdenacao.md](./docs/MetodosOrdenacao.md) | Bubble, Insertion, Selection, Merge, Quick e Heap Sort para vetores | O(n²) a O(n log n) |
 | [Métodos de Busca](./Métodos%20de%20Busca) / [MetodosBusca](./MetodosBusca) | [docs/MetodosBusca.md](./docs/MetodosBusca.md) | Busca Linear, Binária, por Salto, por Interpolação e Exponencial para vetores | O(n) a O(log n) |
 | [Custo Computacional e Complexidade](./Custo%20Computacional%20e%20Complexidade) | [docs/CustoComputacional.md](./docs/CustoComputacional.md) | Introdução ao custo de tempo/espaço, ordens de crescimento e análise assintótica | O(1) a O(2ⁿ) |
@@ -59,7 +59,9 @@ Repositório educacional com implementações de estruturas de dados e algoritmo
 ## Qualidade técnica
 
 - `AVL` usa nó opaco no header público.
+- `TabelaHash` usa TAD opaco no header público.
 - `UnionFind` usa TAD opaco no header público de `AlgoritmosGrafos`.
+- Módulos com alocação validam tamanhos, falhas de alocação e estado destruído antes de usar memória.
 - `make coverage` gera relatório com `gcov` para módulos novos e avançados.
 - `make benchmark` executa benchmark CSV em `benchmarks/`.
 - Módulos antigos com acentos/espaços têm aliases ASCII: `Arvore`, `MetodosOrdenacao` e `MetodosBusca`.
@@ -77,6 +79,21 @@ gcc --version
 make --version
 gcov --version
 ```
+
+---
+
+## Organização do repositório
+
+| Caminho | Conteúdo |
+|---------|----------|
+| `*/include/` | Headers públicos de cada módulo |
+| `*/src/` | Implementações e exemplos executáveis |
+| `*/tests/` | Testes automatizados por módulo |
+| `docs/` | Documentação principal em português |
+| `docs/en/` | Páginas de referência em inglês |
+| `exercicios/` | Listas práticas por tema |
+| `benchmarks/` | Benchmark consolidado em CSV |
+| `scripts/` | Scripts auxiliares de cobertura |
 
 ---
 
@@ -114,7 +131,7 @@ make clean
 
 ## Documentação
 
-A pasta [`docs/`](./docs) contém a documentação completa em português. A versão em inglês está disponível em [`docs/en/`](./docs/en).
+A pasta [`docs/`](./docs) contém a documentação principal em português. A versão em inglês está disponível em [`docs/en/`](./docs/en), com páginas de referência equivalentes ou resumidas conforme o módulo.
 
 - [TAD — Tipo Abstrato de Dados](./docs/TAD.md)
 - [Lista sequencial dinâmica](./docs/Lista.md)
@@ -129,12 +146,14 @@ A pasta [`docs/`](./docs) contém a documentação completa em português. A ver
 - [Grafo com lista de adjacência](./docs/GrafoListaAdjacencia.md)
 - [Algoritmos avançados de grafos](./docs/AlgoritmosGrafos.md)
 - [Benchmarks](./docs/Benchmarks.md)
+- [Makefiles e padrão de build](./docs/Makefiles.md)
 - [Aliases ASCII](./docs/AliasesASCII.md)
 - [Complexidade (Big-O)](./docs/Algoritmos.md#notação-de-complexidade-big-o)
 - [Custo computacional e complexidade](./docs/CustoComputacional.md)
 - [Métodos de busca para vetores](./docs/MetodosBusca.md)
 - [Métodos de ordenação para vetores](./docs/MetodosOrdenacao.md)
 - [Lista/Fila/Pilha estática vs dinâmica](./docs/EstaticoVsDinamico.md)
+- [Segurança de memória e alocação](./docs/SegurancaMemoria.md)
 - [Política de nomes de módulos](./docs/PadraoNomes.md)
 
 ## Exercícios e roteiro de aulas

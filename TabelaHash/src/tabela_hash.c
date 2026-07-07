@@ -1,4 +1,5 @@
 #include "tabela_hash.h"
+#include "../../include/memoria_segura.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,7 +25,7 @@ static size_t hash_int(int chave, size_t capacidade) {
 }
 
 TabelaHash *tabela_hash_criar(size_t capacidade) {
-    if (capacidade == 0U) {
+    if (capacidade == 0U || !memoria_multiplicacao_valida(capacidade, sizeof(TabelaHashItem *))) {
         return NULL;
     }
     TabelaHash *tabela = malloc(sizeof(*tabela));

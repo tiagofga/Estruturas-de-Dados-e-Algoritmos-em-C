@@ -4,7 +4,7 @@
 
 ## Overview
 
-Implementation of a dynamic sequential list in C. The elements are stored in a contiguous array that can grow when needed.
+Implementation of a dynamic sequential list in C. The elements are stored in a contiguous array that can grow when needed. The module also includes a static list variant with fixed storage for comparison.
 
 This structure is appropriate when indexed access and simple sequential storage are desired.
 

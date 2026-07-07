@@ -1,10 +1,19 @@
 #include "pilha.h"
+#include "../../include/memoria_segura.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int pilha_criar(Pilha *pilha, size_t capacidade) {
     if (pilha == NULL || capacidade == 0U) {
+        return 0;
+    }
+
+    pilha->dados = NULL;
+    pilha->capacidade = 0U;
+    pilha->tamanho = 0U;
+
+    if (!memoria_multiplicacao_valida(capacidade, sizeof(int))) {
         return 0;
     }
 
@@ -38,7 +47,7 @@ int pilha_cheia(const Pilha *pilha) {
 }
 
 int pilha_empilhar(Pilha *pilha, int valor) {
-    if (pilha == NULL || pilha_cheia(pilha)) {
+    if (pilha == NULL || pilha->dados == NULL || pilha_cheia(pilha)) {
         return 0;
     }
 
@@ -48,7 +57,7 @@ int pilha_empilhar(Pilha *pilha, int valor) {
 }
 
 int pilha_desempilhar(Pilha *pilha, int *valor_removido) {
-    if (pilha == NULL || pilha_vazia(pilha)) {
+    if (pilha == NULL || pilha->dados == NULL || pilha_vazia(pilha)) {
         return 0;
     }
 
@@ -61,7 +70,7 @@ int pilha_desempilhar(Pilha *pilha, int *valor_removido) {
 }
 
 int pilha_topo(const Pilha *pilha, int *valor) {
-    if (pilha == NULL || pilha_vazia(pilha) || valor == NULL) {
+    if (pilha == NULL || pilha->dados == NULL || pilha_vazia(pilha) || valor == NULL) {
         return 0;
     }
 
@@ -70,7 +79,7 @@ int pilha_topo(const Pilha *pilha, int *valor) {
 }
 
 void pilha_imprimir(const Pilha *pilha) {
-    if (pilha == NULL) {
+    if (pilha == NULL || pilha->dados == NULL) {
         return;
     }
 

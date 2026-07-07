@@ -1,4 +1,5 @@
 #include "heap.h"
+#include "../../include/memoria_segura.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,7 +13,8 @@ static void heap_trocar(int *a, int *b) {
 static int heap_redimensionar(Heap *heap, size_t nova_capacidade) {
     int *novo_buffer = NULL;
 
-    if (heap == NULL || nova_capacidade == 0U) {
+    if (heap == NULL || nova_capacidade == 0U ||
+        !memoria_multiplicacao_valida(nova_capacidade, sizeof(int))) {
         return 0;
     }
 
@@ -80,6 +82,14 @@ int heap_criar(Heap *heap, size_t capacidade_inicial) {
         return 0;
     }
 
+    heap->dados = NULL;
+    heap->tamanho = 0U;
+    heap->capacidade = 0U;
+
+    if (!memoria_multiplicacao_valida(capacidade_inicial, sizeof(int))) {
+        return 0;
+    }
+
     heap->dados = calloc(capacidade_inicial, sizeof(int));
     if (heap->dados == NULL) {
         return 0;
@@ -112,11 +122,8 @@ int heap_inserir(Heap *heap, int valor) {
 
     if (heap->tamanho == heap->capacidade) {
         size_t nova_capacidade = 0U;
-        if (heap->capacidade > ((size_t)-1) / 2U) {
-            return 0;
-        }
-        nova_capacidade = heap->capacidade * 2U;
-        if (!heap_redimensionar(heap, nova_capacidade)) {
+        if (!memoria_dobro_valido(heap->capacidade, &nova_capacidade) ||
+            !heap_redimensionar(heap, nova_capacidade)) {
             return 0;
         }
     }

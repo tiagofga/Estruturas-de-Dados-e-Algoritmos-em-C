@@ -30,7 +30,10 @@ e **complexidade de algoritmos**, com foco em análise de tempo e espaço.
 Para aprofundar o assunto, consulte:
 
 - [Documentação detalhada sobre custo computacional](../docs/CustoComputacional.md)
+- [English reference](../docs/en/ComputationalCost.md)
 - [Documentação de algoritmos e Big-O](../docs/Algoritmos.md)
+- [Métodos de busca](../docs/MetodosBusca.md)
+- [Métodos de ordenação](../docs/MetodosOrdenacao.md)
 
 ## Testes
 

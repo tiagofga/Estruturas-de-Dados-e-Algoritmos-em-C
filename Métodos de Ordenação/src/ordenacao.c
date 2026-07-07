@@ -1,4 +1,5 @@
 #include "ordenacao.h"
+#include "../../include/memoria_segura.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -89,9 +90,14 @@ static void selection_sort(int *v, size_t n) {
 /* Merge Sort                                                          */
 /* ------------------------------------------------------------------ */
 
-static void merge(int *v, size_t esq, size_t meio, size_t dir) {
+static int merge(int *v, size_t esq, size_t meio, size_t dir) {
     const size_t tam_esq = meio - esq;
     const size_t tam_dir = dir - meio;
+
+    if (!memoria_multiplicacao_valida(tam_esq, sizeof(int)) ||
+        !memoria_multiplicacao_valida(tam_dir, sizeof(int))) {
+        return 0;
+    }
 
     int *esq_buf = malloc(tam_esq * sizeof(int));
     int *dir_buf = malloc(tam_dir * sizeof(int));
@@ -99,7 +105,7 @@ static void merge(int *v, size_t esq, size_t meio, size_t dir) {
     if (esq_buf == NULL || dir_buf == NULL) {
         free(esq_buf);
         free(dir_buf);
-        return;
+        return 0;
     }
 
     memcpy(esq_buf, v + esq, tam_esq * sizeof(int));
@@ -125,17 +131,19 @@ static void merge(int *v, size_t esq, size_t meio, size_t dir) {
 
     free(esq_buf);
     free(dir_buf);
+    return 1;
 }
 
-static void merge_sort_rec(int *v, size_t esq, size_t dir) {
+static int merge_sort_rec(int *v, size_t esq, size_t dir) {
     if (dir - esq <= 1U) {
-        return;
+        return 1;
     }
 
     const size_t meio = esq + (dir - esq) / 2U;
-    merge_sort_rec(v, esq, meio);
-    merge_sort_rec(v, meio, dir);
-    merge(v, esq, meio, dir);
+    if (!merge_sort_rec(v, esq, meio) || !merge_sort_rec(v, meio, dir)) {
+        return 0;
+    }
+    return merge(v, esq, meio, dir);
 }
 
 static void merge_sort(int *v, size_t n) {
@@ -143,7 +151,7 @@ static void merge_sort(int *v, size_t n) {
         return;
     }
 
-    merge_sort_rec(v, 0U, n);
+    (void)merge_sort_rec(v, 0U, n);
 }
 
 /* ------------------------------------------------------------------ */

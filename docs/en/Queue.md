@@ -4,7 +4,7 @@
 
 ## Overview
 
-Implementation of a circular queue in C. A queue follows the **FIFO** principle: first in, first out.
+Implementation of a circular queue in C. A queue follows the **FIFO** principle: first in, first out. The module includes both a dynamically allocated queue and a static fixed-storage variant.
 
 The circular representation reuses array positions after elements are removed from the front.
 

@@ -30,7 +30,7 @@ int lista_estatica_cheia(const ListaEstatica *lista) {
 }
 
 int lista_estatica_inserir_fim(ListaEstatica *lista, int valor) {
-    if (lista == NULL || lista_estatica_cheia(lista)) {
+    if (lista == NULL || lista->capacidade == 0U || lista_estatica_cheia(lista)) {
         return 0;
     }
 
@@ -40,7 +40,7 @@ int lista_estatica_inserir_fim(ListaEstatica *lista, int valor) {
 }
 
 int lista_estatica_inserir_posicao(ListaEstatica *lista, size_t posicao, int valor) {
-    if (lista == NULL || posicao > lista->tamanho || lista_estatica_cheia(lista)) {
+    if (lista == NULL || lista->capacidade == 0U || posicao > lista->tamanho || lista_estatica_cheia(lista)) {
         return 0;
     }
 
@@ -71,7 +71,7 @@ int lista_estatica_remover_posicao(ListaEstatica *lista, size_t posicao, int *va
 }
 
 int lista_estatica_buscar(const ListaEstatica *lista, int valor, size_t *posicao_encontrada) {
-    if (lista == NULL) {
+    if (lista == NULL || lista->capacidade == 0U) {
         return 0;
     }
 
@@ -88,7 +88,7 @@ int lista_estatica_buscar(const ListaEstatica *lista, int valor, size_t *posicao
 }
 
 void lista_estatica_imprimir(const ListaEstatica *lista) {
-    if (lista == NULL) {
+    if (lista == NULL || lista->capacidade == 0U) {
         return;
     }
 

@@ -1,5 +1,7 @@
 #include "algoritmos_grafos.h"
+#include "../../include/memoria_segura.h"
 
+#include <limits.h>
 #include <stdlib.h>
 
 struct UnionFind {
@@ -12,10 +14,25 @@ static int aresta_valida(const ArestaPeso *aresta, size_t vertices) {
     return aresta != NULL && aresta->origem < vertices && aresta->destino < vertices;
 }
 
+static int soma_int_valida(int a, int b, int *resultado) {
+    if (resultado == NULL) {
+        return 0;
+    }
+    if ((b > 0 && a > INT_MAX - b) || (b < 0 && a < INT_MIN - b)) {
+        return 0;
+    }
+    *resultado = a + b;
+    return 1;
+}
+
 UnionFind *union_find_criar(size_t tamanho) {
     if (tamanho == 0U) {
         return NULL;
     }
+    if (!memoria_multiplicacao_valida(tamanho, sizeof(size_t))) {
+        return NULL;
+    }
+
     UnionFind *uf = malloc(sizeof(*uf));
     if (uf == NULL) {
         return NULL;
@@ -94,8 +111,19 @@ int kruskal(size_t vertices,
             size_t capacidade_arvore,
             size_t *quantidade_arvore,
             int *peso_total) {
-    if (vertices == 0U || arestas == NULL || arvore_geradora_minima == NULL || quantidade_arvore == NULL || peso_total == NULL ||
-        capacidade_arvore < vertices - 1U) {
+    if (vertices == 0U || quantidade_arvore == NULL || peso_total == NULL) {
+        return 0;
+    }
+
+    *quantidade_arvore = 0U;
+    *peso_total = 0;
+    if (vertices == 1U) {
+        return 1;
+    }
+
+    if (quantidade_arestas == 0U || arestas == NULL || arvore_geradora_minima == NULL ||
+        capacidade_arvore < vertices - 1U ||
+        !memoria_multiplicacao_valida(quantidade_arestas, sizeof(ArestaPeso))) {
         return 0;
     }
 
@@ -118,13 +146,15 @@ int kruskal(size_t vertices,
         return 0;
     }
 
-    *quantidade_arvore = 0U;
-    *peso_total = 0;
     for (size_t i = 0U; i < quantidade_arestas && *quantidade_arvore < vertices - 1U; ++i) {
         if (union_find_unir(uf, ordenadas[i].origem, ordenadas[i].destino)) {
             arvore_geradora_minima[*quantidade_arvore] = ordenadas[i];
             ++(*quantidade_arvore);
-            *peso_total += ordenadas[i].peso;
+            if (!soma_int_valida(*peso_total, ordenadas[i].peso, peso_total)) {
+                union_find_destruir(uf);
+                free(ordenadas);
+                return 0;
+            }
         }
     }
 
@@ -139,8 +169,21 @@ int prim_matriz(size_t vertices,
                 size_t capacidade_arvore,
                 size_t *quantidade_arvore,
                 int *peso_total) {
-    if (vertices == 0U || matriz == NULL || arvore_geradora_minima == NULL || quantidade_arvore == NULL || peso_total == NULL ||
-        capacidade_arvore < vertices - 1U) {
+    if (vertices == 0U || quantidade_arvore == NULL || peso_total == NULL) {
+        return 0;
+    }
+
+    *quantidade_arvore = 0U;
+    *peso_total = 0;
+    if (vertices == 1U) {
+        return 1;
+    }
+
+    if (matriz == NULL || arvore_geradora_minima == NULL || capacidade_arvore < vertices - 1U ||
+        !memoria_multiplicacao_valida(vertices, vertices) ||
+        !memoria_multiplicacao_valida(vertices * vertices, sizeof(int)) ||
+        !memoria_multiplicacao_valida(vertices, sizeof(int)) ||
+        !memoria_multiplicacao_valida(vertices, sizeof(size_t))) {
         return 0;
     }
 
@@ -185,8 +228,6 @@ int prim_matriz(size_t vertices,
         }
     }
 
-    *quantidade_arvore = 0U;
-    *peso_total = 0;
     for (size_t v = 1U; v < vertices; ++v) {
         if (pai[v] == vertices) {
             free(chave);
@@ -196,7 +237,12 @@ int prim_matriz(size_t vertices,
         }
         arvore_geradora_minima[*quantidade_arvore] = (ArestaPeso){pai[v], v, chave[v]};
         ++(*quantidade_arvore);
-        *peso_total += chave[v];
+        if (!soma_int_valida(*peso_total, chave[v], peso_total)) {
+            free(chave);
+            free(pai);
+            free(incluido);
+            return 0;
+        }
     }
 
     free(chave);
@@ -227,9 +273,15 @@ int bellman_ford(size_t vertices,
             size_t u = arestas[j].origem;
             size_t v = arestas[j].destino;
             int peso = arestas[j].peso;
-            if (distancias[u] != ALG_GRAFOS_INF && distancias[u] + peso < distancias[v]) {
-                distancias[v] = distancias[u] + peso;
-                alterou = 1;
+            int candidata = 0;
+            if (distancias[u] != ALG_GRAFOS_INF) {
+                if (!soma_int_valida(distancias[u], peso, &candidata)) {
+                    return 0;
+                }
+                if (candidata < distancias[v]) {
+                    distancias[v] = candidata;
+                    alterou = 1;
+                }
             }
         }
         if (!alterou) {
@@ -241,15 +293,23 @@ int bellman_ford(size_t vertices,
         size_t u = arestas[j].origem;
         size_t v = arestas[j].destino;
         int peso = arestas[j].peso;
-        if (distancias[u] != ALG_GRAFOS_INF && distancias[u] + peso < distancias[v]) {
-            return -1;
+        int candidata = 0;
+        if (distancias[u] != ALG_GRAFOS_INF) {
+            if (!soma_int_valida(distancias[u], peso, &candidata)) {
+                return 0;
+            }
+            if (candidata < distancias[v]) {
+                return -1;
+            }
         }
     }
     return 1;
 }
 
 int floyd_warshall(size_t vertices, const int *matriz, int *distancias) {
-    if (vertices == 0U || matriz == NULL || distancias == NULL) {
+    if (vertices == 0U || matriz == NULL || distancias == NULL ||
+        !memoria_multiplicacao_valida(vertices, vertices) ||
+        !memoria_multiplicacao_valida(vertices * vertices, sizeof(int))) {
         return 0;
     }
 
@@ -270,8 +330,14 @@ int floyd_warshall(size_t vertices, const int *matriz, int *distancias) {
             for (size_t j = 0U; j < vertices; ++j) {
                 int ik = distancias[i * vertices + k];
                 int kj = distancias[k * vertices + j];
-                if (ik != ALG_GRAFOS_INF && kj != ALG_GRAFOS_INF && ik + kj < distancias[i * vertices + j]) {
-                    distancias[i * vertices + j] = ik + kj;
+                int candidata = 0;
+                if (ik != ALG_GRAFOS_INF && kj != ALG_GRAFOS_INF) {
+                    if (!soma_int_valida(ik, kj, &candidata)) {
+                        return 0;
+                    }
+                    if (candidata < distancias[i * vertices + j]) {
+                        distancias[i * vertices + j] = candidata;
+                    }
                 }
             }
         }

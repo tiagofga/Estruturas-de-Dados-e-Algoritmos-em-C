@@ -1,10 +1,21 @@
 #include "fila.h"
+#include "../../include/memoria_segura.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
 int fila_criar(Fila *fila, size_t capacidade) {
     if (fila == NULL || capacidade == 0U) {
+        return 0;
+    }
+
+    fila->dados = NULL;
+    fila->capacidade = 0U;
+    fila->tamanho = 0U;
+    fila->inicio = 0U;
+    fila->fim = 0U;
+
+    if (!memoria_multiplicacao_valida(capacidade, sizeof(int))) {
         return 0;
     }
 
@@ -42,7 +53,7 @@ int fila_cheia(const Fila *fila) {
 }
 
 int fila_enfileirar(Fila *fila, int valor) {
-    if (fila == NULL || fila_cheia(fila)) {
+    if (fila == NULL || fila->dados == NULL || fila->capacidade == 0U || fila_cheia(fila)) {
         return 0;
     }
 
@@ -53,7 +64,7 @@ int fila_enfileirar(Fila *fila, int valor) {
 }
 
 int fila_desenfileirar(Fila *fila, int *valor_removido) {
-    if (fila == NULL || fila_vazia(fila)) {
+    if (fila == NULL || fila->dados == NULL || fila->capacidade == 0U || fila_vazia(fila)) {
         return 0;
     }
 
@@ -67,7 +78,7 @@ int fila_desenfileirar(Fila *fila, int *valor_removido) {
 }
 
 int fila_frente(const Fila *fila, int *valor) {
-    if (fila == NULL || fila_vazia(fila) || valor == NULL) {
+    if (fila == NULL || fila->dados == NULL || fila->capacidade == 0U || fila_vazia(fila) || valor == NULL) {
         return 0;
     }
 
@@ -76,7 +87,7 @@ int fila_frente(const Fila *fila, int *valor) {
 }
 
 void fila_imprimir(const Fila *fila) {
-    if (fila == NULL) {
+    if (fila == NULL || fila->dados == NULL || fila->capacidade == 0U) {
         return;
     }
 

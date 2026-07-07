@@ -34,7 +34,7 @@ int fila_estatica_cheia(const FilaEstatica *fila) {
 }
 
 int fila_estatica_enfileirar(FilaEstatica *fila, int valor) {
-    if (fila == NULL || fila_estatica_cheia(fila)) {
+    if (fila == NULL || fila->capacidade == 0U || fila_estatica_cheia(fila)) {
         return 0;
     }
 
@@ -45,7 +45,7 @@ int fila_estatica_enfileirar(FilaEstatica *fila, int valor) {
 }
 
 int fila_estatica_desenfileirar(FilaEstatica *fila, int *valor_removido) {
-    if (fila == NULL || fila_estatica_vazia(fila)) {
+    if (fila == NULL || fila->capacidade == 0U || fila_estatica_vazia(fila)) {
         return 0;
     }
 
@@ -59,7 +59,7 @@ int fila_estatica_desenfileirar(FilaEstatica *fila, int *valor_removido) {
 }
 
 int fila_estatica_frente(const FilaEstatica *fila, int *valor) {
-    if (fila == NULL || fila_estatica_vazia(fila) || valor == NULL) {
+    if (fila == NULL || fila->capacidade == 0U || fila_estatica_vazia(fila) || valor == NULL) {
         return 0;
     }
 
@@ -68,7 +68,7 @@ int fila_estatica_frente(const FilaEstatica *fila, int *valor) {
 }
 
 void fila_estatica_imprimir(const FilaEstatica *fila) {
-    if (fila == NULL) {
+    if (fila == NULL || fila->capacidade == 0U) {
         return;
     }
 

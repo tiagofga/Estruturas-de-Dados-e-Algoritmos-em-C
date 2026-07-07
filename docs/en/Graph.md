@@ -12,30 +12,34 @@ The adjacency matrix representation provides O(1) edge lookup, but uses O(V²) m
 
 ## Data structure
 
-The graph stores:
+```c
+/* include/grafo.h */
+typedef struct {
+    size_t vertices;
+    int direcionado;
+    int **matriz;
+} Grafo;
+```
 
-- number of vertices;
-- whether it is directed or undirected;
-- adjacency matrix;
-- positive integer weights for weighted edges.
-
-For unweighted edges, the stored weight is `1`.
+The graph stores the number of vertices, whether it is directed, and an adjacency matrix. In the matrix, `0` means “no edge” and any positive value is the edge weight. For unweighted edges, the stored weight is `1`.
 
 ---
 
 ## Main operations
 
 ```c
-int grafo_criar(Grafo *grafo, size_t vertices, int direcionado);
+int grafo_criar(Grafo *grafo, size_t vertices);
+int grafo_criar_direcionado(Grafo *grafo, size_t vertices, int direcionado);
 void grafo_destruir(Grafo *grafo);
 int grafo_adicionar_aresta(Grafo *grafo, size_t origem, size_t destino);
 int grafo_adicionar_aresta_ponderada(Grafo *grafo, size_t origem, size_t destino, int peso);
 int grafo_remover_aresta(Grafo *grafo, size_t origem, size_t destino);
-int grafo_existe_aresta(const Grafo *grafo, size_t origem, size_t destino);
-int grafo_bfs(const Grafo *grafo, size_t origem, int *visitados);
-int grafo_dfs(const Grafo *grafo, size_t origem, int *visitados);
-int grafo_dijkstra(const Grafo *grafo, size_t origem, int *distancias);
-int grafo_ordenacao_topologica(const Grafo *grafo, int *ordem);
+int grafo_tem_aresta(const Grafo *grafo, size_t origem, size_t destino);
+int grafo_bfs(const Grafo *grafo, size_t inicio, size_t *ordem, size_t capacidade, size_t *visitados);
+int grafo_dfs(const Grafo *grafo, size_t inicio, size_t *ordem, size_t capacidade, size_t *visitados);
+int grafo_dijkstra(const Grafo *grafo, size_t origem, int *distancias, size_t capacidade);
+int grafo_ordenacao_topologica(const Grafo *grafo, size_t *ordem, size_t capacidade, size_t *tamanho_ordem);
+void grafo_imprimir(const Grafo *grafo);
 ```
 
 ---
@@ -44,9 +48,7 @@ int grafo_ordenacao_topologica(const Grafo *grafo, int *ordem);
 
 ### `grafo_adicionar_aresta`
 
-Adds an unweighted edge with weight `1`.
-
-In undirected graphs, the symmetric edge is also added.
+Adds an unweighted edge with weight `1`. It is a shortcut for `grafo_adicionar_aresta_ponderada(..., 1)`.
 
 ### `grafo_adicionar_aresta_ponderada`
 
@@ -56,19 +58,23 @@ Adds an edge with a positive integer weight.
 - In undirected graphs, both directions receive the same weight.
 - This function is used by Dijkstra's algorithm.
 
+### `grafo_tem_aresta`
+
+Returns the stored edge weight, or `0` when the edge does not exist or the parameters are invalid.
+
 ---
 
 ## Algorithms
 
 ### Breadth-First Search (BFS)
 
-Visits vertices level by level from a source vertex.
+Visits vertices level by level from a source vertex and writes the visit order to `ordem`.
 
 - **Complexity with adjacency matrix**: O(V²)
 
 ### Depth-First Search (DFS)
 
-Explores each branch as deeply as possible before backtracking.
+Explores each branch as deeply as possible before backtracking and writes the visit order to `ordem`.
 
 - **Complexity with adjacency matrix**: O(V²)
 
@@ -101,9 +107,16 @@ Computes a valid topological ordering for directed acyclic graphs (DAGs).
 
 ---
 
-## Notes
+## Matrix vs. Adjacency List
 
-The adjacency matrix is simple and efficient for dense graphs. For sparse graphs, an adjacency list representation is usually more memory-efficient and is a good future extension for this repository.
+| Aspect | Matrix | List |
+|--------|--------|------|
+| Space | O(V²) | O(V + E) |
+| Edge lookup | O(1) | O(degree) |
+| Neighbor iteration | O(V) | O(degree) |
+| Best fit | Dense graphs | Sparse graphs |
+
+The repository also includes [AdjacencyListGraph](./AdjacencyListGraph.md) for sparse graphs.
 
 ---
 

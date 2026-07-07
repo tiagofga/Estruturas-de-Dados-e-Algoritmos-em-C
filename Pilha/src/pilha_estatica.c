@@ -30,7 +30,7 @@ int pilha_estatica_cheia(const PilhaEstatica *pilha) {
 }
 
 int pilha_estatica_empilhar(PilhaEstatica *pilha, int valor) {
-    if (pilha == NULL || pilha_estatica_cheia(pilha)) {
+    if (pilha == NULL || pilha->capacidade == 0U || pilha_estatica_cheia(pilha)) {
         return 0;
     }
 
@@ -40,7 +40,7 @@ int pilha_estatica_empilhar(PilhaEstatica *pilha, int valor) {
 }
 
 int pilha_estatica_desempilhar(PilhaEstatica *pilha, int *valor_removido) {
-    if (pilha == NULL || pilha_estatica_vazia(pilha)) {
+    if (pilha == NULL || pilha->capacidade == 0U || pilha_estatica_vazia(pilha)) {
         return 0;
     }
 
@@ -53,7 +53,7 @@ int pilha_estatica_desempilhar(PilhaEstatica *pilha, int *valor_removido) {
 }
 
 int pilha_estatica_topo(const PilhaEstatica *pilha, int *valor) {
-    if (pilha == NULL || pilha_estatica_vazia(pilha) || valor == NULL) {
+    if (pilha == NULL || pilha->capacidade == 0U || pilha_estatica_vazia(pilha) || valor == NULL) {
         return 0;
     }
 
@@ -62,7 +62,7 @@ int pilha_estatica_topo(const PilhaEstatica *pilha, int *valor) {
 }
 
 void pilha_estatica_imprimir(const PilhaEstatica *pilha) {
-    if (pilha == NULL) {
+    if (pilha == NULL || pilha->capacidade == 0U) {
         return;
     }
 

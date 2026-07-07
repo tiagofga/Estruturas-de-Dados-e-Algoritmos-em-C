@@ -1,4 +1,5 @@
 #include "grafo_lista.h"
+#include "../../include/memoria_segura.h"
 
 #include <limits.h>
 #include <stdio.h>
@@ -53,6 +54,15 @@ int grafo_lista_criar(GrafoLista *grafo, size_t vertices, int direcionado) {
     if (grafo == NULL || vertices == 0U) {
         return 0;
     }
+
+    grafo->adjacencias = NULL;
+    grafo->vertices = 0U;
+    grafo->direcionado = 0;
+
+    if (!memoria_multiplicacao_valida(vertices, sizeof(GrafoListaAresta *))) {
+        return 0;
+    }
+
     grafo->adjacencias = calloc(vertices, sizeof(GrafoListaAresta *));
     if (grafo->adjacencias == NULL) {
         grafo->vertices = 0U;
@@ -129,6 +139,11 @@ int grafo_lista_bfs(const GrafoLista *grafo, size_t inicio, size_t *ordem, size_
     if (grafo == NULL || grafo->adjacencias == NULL || inicio >= grafo->vertices || ordem == NULL || visitados == NULL || capacidade < grafo->vertices) {
         return 0;
     }
+    if (!memoria_multiplicacao_valida(grafo->vertices, sizeof(int)) ||
+        !memoria_multiplicacao_valida(grafo->vertices, sizeof(size_t))) {
+        return 0;
+    }
+
     int *visitado = calloc(grafo->vertices, sizeof(int));
     size_t *fila = calloc(grafo->vertices, sizeof(size_t));
     if (visitado == NULL || fila == NULL) {
@@ -171,6 +186,10 @@ int grafo_lista_dfs(const GrafoLista *grafo, size_t inicio, size_t *ordem, size_
     if (grafo == NULL || grafo->adjacencias == NULL || inicio >= grafo->vertices || ordem == NULL || visitados == NULL || capacidade < grafo->vertices) {
         return 0;
     }
+    if (!memoria_multiplicacao_valida(grafo->vertices, sizeof(int))) {
+        return 0;
+    }
+
     int *visitado = calloc(grafo->vertices, sizeof(int));
     if (visitado == NULL) {
         return 0;
@@ -186,6 +205,10 @@ int grafo_lista_dijkstra(const GrafoLista *grafo, size_t origem, int *distancias
     if (grafo == NULL || grafo->adjacencias == NULL || origem >= grafo->vertices || distancias == NULL || capacidade < grafo->vertices) {
         return 0;
     }
+    if (!memoria_multiplicacao_valida(grafo->vertices, sizeof(int))) {
+        return 0;
+    }
+
     int *visitado = calloc(grafo->vertices, sizeof(int));
     if (visitado == NULL) {
         return 0;

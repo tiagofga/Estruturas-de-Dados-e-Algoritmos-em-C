@@ -1,9 +1,15 @@
 #include "lista.h"
+#include "../../include/memoria_segura.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 
 static int lista_redimensionar(Lista *lista, size_t nova_capacidade) {
+    if (lista == NULL || nova_capacidade == 0U ||
+        !memoria_multiplicacao_valida(nova_capacidade, sizeof(int))) {
+        return 0;
+    }
+
     int *novo_buffer = realloc(lista->dados, nova_capacidade * sizeof(int));
     if (novo_buffer == NULL) {
         return 0;
@@ -75,6 +81,14 @@ int lista_criar(Lista *lista, size_t capacidade_inicial) {
         return 0;
     }
 
+    lista->dados = NULL;
+    lista->tamanho = 0U;
+    lista->capacidade = 0U;
+
+    if (!memoria_multiplicacao_valida(capacidade_inicial, sizeof(int))) {
+        return 0;
+    }
+
     lista->dados = calloc(capacidade_inicial, sizeof(int));
     if (lista->dados == NULL) {
         return 0;
@@ -101,12 +115,16 @@ int lista_vazia(const Lista *lista) {
 }
 
 int lista_inserir_fim(Lista *lista, int valor) {
-    if (lista == NULL) {
+    if (lista == NULL || lista->dados == NULL) {
         return 0;
     }
 
-    if (lista->tamanho == lista->capacidade && !lista_redimensionar(lista, lista->capacidade * 2U)) {
-        return 0;
+    if (lista->tamanho == lista->capacidade) {
+        size_t nova_capacidade = 0U;
+        if (!memoria_dobro_valido(lista->capacidade, &nova_capacidade) ||
+            !lista_redimensionar(lista, nova_capacidade)) {
+            return 0;
+        }
     }
 
     lista->dados[lista->tamanho++] = valor;
@@ -114,12 +132,16 @@ int lista_inserir_fim(Lista *lista, int valor) {
 }
 
 int lista_inserir_posicao(Lista *lista, size_t posicao, int valor) {
-    if (lista == NULL || posicao > lista->tamanho) {
+    if (lista == NULL || lista->dados == NULL || posicao > lista->tamanho) {
         return 0;
     }
 
-    if (lista->tamanho == lista->capacidade && !lista_redimensionar(lista, lista->capacidade * 2U)) {
-        return 0;
+    if (lista->tamanho == lista->capacidade) {
+        size_t nova_capacidade = 0U;
+        if (!memoria_dobro_valido(lista->capacidade, &nova_capacidade) ||
+            !lista_redimensionar(lista, nova_capacidade)) {
+            return 0;
+        }
     }
 
     for (size_t i = lista->tamanho; i > posicao; --i) {

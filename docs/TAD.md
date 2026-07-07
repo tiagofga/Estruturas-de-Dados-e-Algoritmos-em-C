@@ -76,6 +76,9 @@ float ponto_distancia_origem(const Ponto *p);
 
 Ponto *ponto_criar(float x, float y) {
     Ponto *p = malloc(sizeof(Ponto));
+    if (p == NULL) {
+        return NULL;
+    }
     p->x = x;   /* acesso via ponteiro: usa -> */
     p->y = y;
     return p;
@@ -90,6 +93,9 @@ float ponto_distancia_origem(const Ponto *p) {
 int main(void) {
     /* 1. Acesso por PONTEIRO — operador -> */
     Ponto *dinamico = ponto_criar(3.0f, 4.0f);
+    if (dinamico == NULL) {
+        return 1;
+    }
     printf("Ponteiro  -> x=%.1f, y=%.1f, dist=%.1f\n",
            dinamico->x, dinamico->y,
            ponto_distancia_origem(dinamico));

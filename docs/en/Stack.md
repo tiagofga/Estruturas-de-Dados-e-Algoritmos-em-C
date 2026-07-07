@@ -4,7 +4,7 @@
 
 ## Overview
 
-Implementation of a sequential stack in C. A stack follows the **LIFO** principle: last in, first out.
+Implementation of a sequential stack in C. A stack follows the **LIFO** principle: last in, first out. The module includes both a dynamically allocated stack and a static fixed-storage variant.
 
 The most recently inserted element is the first one removed.
 

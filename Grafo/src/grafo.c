@@ -1,4 +1,5 @@
 #include "grafo.h"
+#include "../../include/memoria_segura.h"
 
 #include <limits.h>
 #include <stdio.h>
@@ -10,6 +11,15 @@ int grafo_criar(Grafo *grafo, size_t vertices) {
 
 int grafo_criar_direcionado(Grafo *grafo, size_t vertices, int direcionado) {
     if (grafo == NULL || vertices == 0U) {
+        return 0;
+    }
+
+    grafo->vertices = 0U;
+    grafo->direcionado = 0;
+    grafo->matriz = NULL;
+
+    if (!memoria_multiplicacao_valida(vertices, sizeof(int *)) ||
+        !memoria_multiplicacao_valida(vertices, sizeof(int))) {
         return 0;
     }
 
@@ -94,6 +104,11 @@ int grafo_bfs(const Grafo *grafo, size_t inicio, size_t *ordem, size_t capacidad
         return 0;
     }
 
+    if (!memoria_multiplicacao_valida(grafo->vertices, sizeof(int)) ||
+        !memoria_multiplicacao_valida(grafo->vertices, sizeof(size_t))) {
+        return 0;
+    }
+
     int *visitado = calloc(grafo->vertices, sizeof(int));
     size_t *fila = calloc(grafo->vertices, sizeof(size_t));
     if (visitado == NULL || fila == NULL) {
@@ -144,6 +159,10 @@ int grafo_dfs(const Grafo *grafo, size_t inicio, size_t *ordem, size_t capacidad
         return 0;
     }
 
+    if (!memoria_multiplicacao_valida(grafo->vertices, sizeof(int))) {
+        return 0;
+    }
+
     int *visitado = calloc(grafo->vertices, sizeof(int));
     if (visitado == NULL) {
         return 0;
@@ -159,6 +178,10 @@ int grafo_dfs(const Grafo *grafo, size_t inicio, size_t *ordem, size_t capacidad
 int grafo_dijkstra(const Grafo *grafo, size_t origem, int *distancias, size_t capacidade) {
     if (grafo == NULL || grafo->matriz == NULL || origem >= grafo->vertices || distancias == NULL ||
         capacidade < grafo->vertices) {
+        return 0;
+    }
+
+    if (!memoria_multiplicacao_valida(grafo->vertices, sizeof(int))) {
         return 0;
     }
 
@@ -205,6 +228,10 @@ int grafo_dijkstra(const Grafo *grafo, size_t origem, int *distancias, size_t ca
 int grafo_ordenacao_topologica(const Grafo *grafo, size_t *ordem, size_t capacidade, size_t *tamanho_ordem) {
     if (grafo == NULL || grafo->matriz == NULL || ordem == NULL || tamanho_ordem == NULL || capacidade < grafo->vertices ||
         !grafo->direcionado) {
+        return 0;
+    }
+
+    if (!memoria_multiplicacao_valida(grafo->vertices, sizeof(size_t))) {
         return 0;
     }
 
