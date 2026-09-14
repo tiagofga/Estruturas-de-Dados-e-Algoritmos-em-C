@@ -1,0 +1,33 @@
+name: validate-site
+
+on:
+  pull_request:
+    branches: [master]
+    paths:
+      - 'docs/**'
+      - 'scripts/build-site.sh'
+      - 'mkdocs.yml'
+      - 'requirements.txt'
+      - '.github/workflows/validate-site.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-site:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install site dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Validate MkDocs build
+        run: bash scripts/build-site.sh
