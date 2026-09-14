@@ -1,0 +1,47 @@
+site_name: Estruturas de Dados e Algoritmos em C
+site_description: Material didático e implementações de estruturas de dados e algoritmos em C
+site_url: https://tiagofga.github.io/Estruturas-de-Dados-e-Algoritmos-em-C/
+repo_url: https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C
+repo_name: tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C
+
+theme:
+  name: readthedocs
+  navigation_depth: 2
+  titles_only: true
+  collapse_navigation: true
+
+nav:
+  - Início: index.md
+  - Roteiro de aulas: RoteiroAulas.md
+  - Fundamentos:
+      - Tipos Abstratos de Dados: TAD.md
+      - Algoritmos e complexidade: Algoritmos.md
+      - Custo computacional: CustoComputacional.md
+      - Estruturas estáticas e dinâmicas: EstaticoVsDinamico.md
+      - Segurança de memória: SegurancaMemoria.md
+  - Estruturas lineares:
+      - Lista: Lista.md
+      - Listas encadeadas: ListasEncadeadas.md
+      - Pilha: Pilha.md
+      - Fila: Fila.md
+  - Heap e Hash:
+      - Heap: Heap.md
+      - Tabela Hash: TabelaHash.md
+  - Árvores:
+      - Árvore Binária de Busca: Arvore.md
+      - AVL: AVL.md
+  - Grafos:
+      - Conceitos e matriz de adjacência: Grafo.md
+      - Lista de adjacência: GrafoListaAdjacencia.md
+      - Algoritmos de grafos: AlgoritmosGrafos.md
+  - Busca e ordenação:
+      - Métodos de busca: MetodosBusca.md
+      - Métodos de ordenação: MetodosOrdenacao.md
+  - Projeto:
+      - Organização do repositório: OrganizacaoRepositorio.md
+      - Makefiles: Makefiles.md
+      - Aliases ASCII: AliasesASCII.md
+      - Padrão de nomes: PadraoNomes.md
+      - Benchmarks: Benchmarks.md
+  - English: en/README.md
+  - Repositório no GitHub: https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C
