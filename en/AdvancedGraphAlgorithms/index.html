@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://tiagofga.github.io/Estruturas-de-Dados-e-Algoritmos-em-C/en/AdvancedGraphAlgorithms/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Advanced Graph Algorithms - Estruturas de Dados e Algoritmos em C</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Advanced Graph Algorithms";
+        var mkdocs_page_input_path = "en/AdvancedGraphAlgorithms.md";
+        var mkdocs_page_url = "/Estruturas-de-Dados-e-Algoritmos-em-C/en/AdvancedGraphAlgorithms/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Estruturas de Dados e Algoritmos em C
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../RoteiroAulas/">Roteiro de aulas</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Fundamentos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../TAD/">Tipos Abstratos de Dados</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Algoritmos/">Algoritmos e complexidade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../CustoComputacional/">Custo computacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EstaticoVsDinamico/">Estruturas estáticas e dinâmicas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../SegurancaMemoria/">Segurança de memória</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Estruturas lineares</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Lista/">Lista</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ListasEncadeadas/">Listas encadeadas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Pilha/">Pilha</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Fila/">Fila</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Heap e Hash</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Heap/">Heap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../TabelaHash/">Tabela Hash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Árvores</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Arvore/">Árvore Binária de Busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../AVL/">AVL</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Grafos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Grafo/">Conceitos e matriz de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../GrafoListaAdjacencia/">Lista de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../AlgoritmosGrafos/">Algoritmos de grafos</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Busca e ordenação</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../MetodosBusca/">Métodos de busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../MetodosOrdenacao/">Métodos de ordenação</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projeto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../OrganizacaoRepositorio/">Organização do repositório</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Makefiles/">Makefiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../AliasesASCII/">Aliases ASCII</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../PadraoNomes/">Padrão de nomes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Benchmarks/">Benchmarks</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">English</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C">Repositório no GitHub</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Estruturas de Dados e Algoritmos em C</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Advanced Graph Algorithms</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C/edit/master/docs/en/AdvancedGraphAlgorithms.md">Edit on tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="advanced-graph-algorithms">Advanced Graph Algorithms</h1>
+<h2 id="overview">Overview</h2>
+<p>This module contains classic algorithms for connectivity, minimum spanning trees, and shortest paths.</p>
+<p>Implemented algorithms:</p>
+<ul>
+<li>Union-Find / Disjoint Set Union (DSU)</li>
+<li>Kruskal</li>
+<li>Prim using an adjacency matrix</li>
+<li>Bellman-Ford</li>
+<li>Floyd-Warshall</li>
+</ul>
+<hr />
+<h2 id="main-structures">Main structures</h2>
+<pre><code class="language-c">typedef struct {
+    size_t origem;
+    size_t destino;
+    int peso;
+} ArestaPeso;
+
+typedef struct UnionFind UnionFind;
+</code></pre>
+<p><code>ArestaPeso</code> represents a weighted edge. <code>UnionFind</code> is an opaque ADT for disjoint sets: its internal fields remain private in the <code>.c</code> file.</p>
+<hr />
+<h2 id="union-find">Union-Find</h2>
+<p>Union-Find maintains disjoint components and quickly answers whether two vertices belong to the same set.</p>
+<p>Operations:</p>
+<pre><code class="language-c">UnionFind *union_find_criar(size_t tamanho);
+void union_find_destruir(UnionFind *uf);
+size_t union_find_encontrar(UnionFind *uf, size_t elemento);
+int union_find_unir(UnionFind *uf, size_t a, size_t b);
+int union_find_mesmo_conjunto(UnionFind *uf, size_t a, size_t b);
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-c">UnionFind *uf = union_find_criar(10);
+if (uf != NULL) {
+    union_find_unir(uf, 0, 1);
+    union_find_destruir(uf);
+}
+</code></pre>
+<p>Amortized complexity: almost O(1), usually represented as O(α(n)), where α is the inverse Ackermann function.</p>
+<hr />
+<h2 id="kruskal">Kruskal</h2>
+<p>Kruskal computes a minimum spanning tree for an undirected weighted graph. It sorts edges by weight and uses Union-Find to avoid cycles.</p>
+<pre><code class="language-c">int kruskal(size_t vertices,
+            const ArestaPeso *arestas,
+            size_t quantidade_arestas,
+            ArestaPeso *arvore_geradora_minima,
+            size_t capacidade_arvore,
+            size_t *quantidade_arvore,
+            int *peso_total);
+</code></pre>
+<p>Complexity: O(E log E), dominated by sorting the edges.</p>
+<hr />
+<h2 id="prim-with-adjacency-matrix">Prim with adjacency matrix</h2>
+<p>Prim also computes a minimum spanning tree. This implementation uses an adjacency matrix and selects the next vertex by linear scan.</p>
+<pre><code class="language-c">int prim_matriz(size_t vertices,
+                const int *matriz,
+                ArestaPeso *arvore_geradora_minima,
+                size_t capacidade_arvore,
+                size_t *quantidade_arvore,
+                int *peso_total);
+</code></pre>
+<p>Complexity: O(V²).</p>
+<hr />
+<h2 id="bellman-ford">Bellman-Ford</h2>
+<p>Bellman-Ford computes single-source shortest paths and accepts negative edge weights. It also detects negative cycles reachable from the source.</p>
+<pre><code class="language-c">int bellman_ford(size_t vertices,
+                 const ArestaPeso *arestas,
+                 size_t quantidade_arestas,
+                 size_t origem,
+                 int *distancias);
+</code></pre>
+<p>Return values:</p>
+<ul>
+<li><code>1</code>: success;</li>
+<li><code>0</code>: invalid input;</li>
+<li><code>-1</code>: negative cycle detected.</li>
+</ul>
+<p>Complexity: O(VE).</p>
+<hr />
+<h2 id="floyd-warshall">Floyd-Warshall</h2>
+<p>Floyd-Warshall computes shortest paths between all pairs of vertices.</p>
+<pre><code class="language-c">int floyd_warshall(size_t vertices, const int *matriz, int *distancias);
+</code></pre>
+<p>Return values:</p>
+<ul>
+<li><code>1</code>: success;</li>
+<li><code>0</code>: invalid input;</li>
+<li><code>-1</code>: negative cycle detected.</li>
+</ul>
+<p>Complexity: O(V³).</p>
+<hr />
+<h2 id="complexity-summary">Complexity summary</h2>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Main use</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Union-Find</td>
+<td>Disjoint components</td>
+<td>amortized O(α(n))</td>
+</tr>
+<tr>
+<td>Kruskal</td>
+<td>Minimum spanning tree</td>
+<td>O(E log E)</td>
+</tr>
+<tr>
+<td>Prim with matrix</td>
+<td>Minimum spanning tree</td>
+<td>O(V²)</td>
+</tr>
+<tr>
+<td>Bellman-Ford</td>
+<td>Shortest path with negative weights</td>
+<td>O(VE)</td>
+</tr>
+<tr>
+<td>Floyd-Warshall</td>
+<td>All-pairs shortest paths</td>
+<td>O(V³)</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C" class="fa fa-code-fork" style="color: #fcfcfc"> tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../vercel-analytics.js"></script>
+      <script src="https://va.vercel-scripts.com/v1/script.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://tiagofga.github.io/Estruturas-de-Dados-e-Algoritmos-em-C/Arvore/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Árvore Binária de Busca - Estruturas de Dados e Algoritmos em C</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u00c1rvore Bin\u00e1ria de Busca";
+        var mkdocs_page_input_path = "Arvore.md";
+        var mkdocs_page_url = "/Estruturas-de-Dados-e-Algoritmos-em-C/Arvore/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Estruturas de Dados e Algoritmos em C
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../RoteiroAulas/">Roteiro de aulas</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Fundamentos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../TAD/">Tipos Abstratos de Dados</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Algoritmos/">Algoritmos e complexidade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../CustoComputacional/">Custo computacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../EstaticoVsDinamico/">Estruturas estáticas e dinâmicas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../SegurancaMemoria/">Segurança de memória</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Estruturas lineares</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Lista/">Lista</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ListasEncadeadas/">Listas encadeadas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Pilha/">Pilha</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Fila/">Fila</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Heap e Hash</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Heap/">Heap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../TabelaHash/">Tabela Hash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Árvores</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Árvore Binária de Busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AVL/">AVL</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Grafos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Grafo/">Conceitos e matriz de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GrafoListaAdjacencia/">Lista de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AlgoritmosGrafos/">Algoritmos de grafos</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Busca e ordenação</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../MetodosBusca/">Métodos de busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../MetodosOrdenacao/">Métodos de ordenação</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projeto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../OrganizacaoRepositorio/">Organização do repositório</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Makefiles/">Makefiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AliasesASCII/">Aliases ASCII</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PadraoNomes/">Padrão de nomes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Benchmarks/">Benchmarks</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../en/">English</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C">Repositório no GitHub</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Estruturas de Dados e Algoritmos em C</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Árvores</li>
+      <li class="breadcrumb-item active">Árvore Binária de Busca</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C/edit/master/docs/Arvore.md">Edit on tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="arvore-arvore-binaria-de-busca-bst">Árvore — Árvore Binária de Busca (BST)</h1>
+<h2 id="visao-geral">Visão geral</h2>
+<p>Implementação de uma <strong>Árvore Binária de Busca</strong> (BST — <em>Binary Search Tree</em>) em C.
+Cada nó armazena um valor inteiro e dois ponteiros: filho esquerdo (valores menores)
+e filho direito (valores maiores). A propriedade BST é mantida em todas as operações,
+permitindo busca eficiente em O(log n) no caso médio.</p>
+<hr />
+<h2 id="estrutura-de-dados">Estrutura de dados</h2>
+<pre><code class="language-c">/* include/arvore.h */
+typedef struct No {
+    int          valor;
+    struct No   *esquerda;
+    struct No   *direita;
+} No;
+</code></pre>
+<h3 id="campos">Campos</h3>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>valor</code></td>
+<td><code>int</code></td>
+<td>Valor armazenado no nó</td>
+</tr>
+<tr>
+<td><code>esquerda</code></td>
+<td><code>No *</code></td>
+<td>Filho esquerdo (valores menores) ou <code>NULL</code></td>
+</tr>
+<tr>
+<td><code>direita</code></td>
+<td><code>No *</code></td>
+<td>Filho direito (valores maiores) ou <code>NULL</code></td>
+</tr>
+</tbody>
+</table>
+<p>A árvore inteira é representada por um <strong>ponteiro para o nó raiz</strong> (<code>No *raiz</code>).
+Uma árvore vazia é representada por <code>raiz == NULL</code>.</p>
+<hr />
+<h2 id="interface-publica">Interface pública</h2>
+<pre><code class="language-c">No  *arvore_inserir(No *raiz, int valor);
+int  arvore_buscar(const No *raiz, int valor);
+void arvore_em_ordem(const No *raiz);
+void arvore_destruir(No *raiz);
+</code></pre>
+<hr />
+<h2 id="operacoes-detalhadas">Operações detalhadas</h2>
+<h3 id="arvore_inserir"><code>arvore_inserir</code></h3>
+<p>Insere <code>valor</code> na BST mantendo a propriedade de ordenação.</p>
+<ul>
+<li>Se <code>raiz == NULL</code>, cria e retorna um novo nó com <code>valor</code>.</li>
+<li>Duplicatas são ignoradas.</li>
+<li><strong>Complexidade</strong>: O(log n) médio, O(n) pior caso.</li>
+</ul>
+<h3 id="arvore_buscar"><code>arvore_buscar</code></h3>
+<p>Busca recursiva por <code>valor</code>.</p>
+<ul>
+<li><strong>Retorna</strong> <code>1</code> se encontrado, <code>0</code> caso contrário.</li>
+<li><strong>Complexidade</strong>: O(log n) médio, O(n) pior caso.</li>
+</ul>
+<h3 id="arvore_em_ordem"><code>arvore_em_ordem</code></h3>
+<p>Percurso em-ordem (esquerda → raiz → direita), imprimindo valores crescentes.</p>
+<ul>
+<li><strong>Complexidade</strong>: O(n).</li>
+</ul>
+<h3 id="arvore_destruir"><code>arvore_destruir</code></h3>
+<p>Libera recursivamente todos os nós.</p>
+<ul>
+<li><strong>Complexidade</strong>: O(n).</li>
+</ul>
+<hr />
+<h2 id="complexidade-resumida-bst">Complexidade resumida (BST)</h2>
+<table>
+<thead>
+<tr>
+<th>Operação</th>
+<th>Caso médio</th>
+<th>Pior caso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inserir</td>
+<td>O(log n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Buscar</td>
+<td>O(log n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Percurso</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Destruir</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<p>O pior caso ocorre quando a árvore fica degenerada (parecida com lista encadeada).</p>
+<hr />
+<h2 id="arvores-avl">Árvores AVL</h2>
+<p>AVL é uma BST <strong>auto-balanceada</strong>.</p>
+<ul>
+<li>Mantém para cada nó: <code>|altura(esquerda) - altura(direita)| &lt;= 1</code>.</li>
+<li>Após inserção/remoção, aplica rotações para reequilibrar:</li>
+<li>rotação simples à direita (LL)</li>
+<li>rotação simples à esquerda (RR)</li>
+<li>rotação dupla esquerda-direita (LR)</li>
+<li>rotação dupla direita-esquerda (RL)</li>
+</ul>
+<h3 id="complexidade-avl">Complexidade (AVL)</h3>
+<table>
+<thead>
+<tr>
+<th>Operação</th>
+<th>Complexidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buscar</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>Inserir</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>Remover</td>
+<td>O(log n)</td>
+</tr>
+</tbody>
+</table>
+<p>AVL costuma ter busca ligeiramente melhor que Rubro-Negra, com custo maior de rebalanceamento.</p>
+<hr />
+<h2 id="arvores-rubro-negra">Árvores Rubro-Negra</h2>
+<p>Rubro-Negra também é BST auto-balanceada, com regras de coloração:</p>
+<ol>
+<li>Todo nó é vermelho ou preto.</li>
+<li>A raiz é preta.</li>
+<li>Folhas nulas são pretas.</li>
+<li>Nó vermelho não pode ter filho vermelho.</li>
+<li>Todo caminho da raiz até folhas nulas tem o mesmo número de nós pretos.</li>
+</ol>
+<h3 id="complexidade-rubro-negra">Complexidade (Rubro-Negra)</h3>
+<table>
+<thead>
+<tr>
+<th>Operação</th>
+<th>Complexidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buscar</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>Inserir</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>Remover</td>
+<td>O(log n)</td>
+</tr>
+</tbody>
+</table>
+<p>Rubro-Negra tende a fazer menos rotações que AVL em atualizações frequentes.</p>
+<hr />
+<h2 id="metodos-de-ordenacao-relacionados-a-arvores">Métodos de ordenação relacionados a árvores</h2>
+<h3 id="tree-sort-via-bst">Tree Sort (via BST)</h3>
+<ol>
+<li>Inserir todos os elementos na BST.</li>
+<li>
+<p>Percorrer em-ordem.</p>
+</li>
+<li>
+<p><strong>Médio</strong>: O(n log n)</p>
+</li>
+<li><strong>Pior</strong>: O(n²) sem balanceamento</li>
+<li>Com AVL/Rubro-Negra: O(n log n) garantido</li>
+</ol>
+<h3 id="heapsort-arvore-implicita-em-array">Heapsort (árvore implícita em array)</h3>
+<p>Embora use heap em vetor (e não BST), é ordenação baseada em estrutura de árvore.</p>
+<ul>
+<li><strong>Tempo</strong>: O(n log n)</li>
+<li><strong>Espaço extra</strong>: O(1)</li>
+</ul>
+<hr />
+<h2 id="metodos-de-busca-em-arvores">Métodos de busca em árvores</h2>
+<ul>
+<li><strong>Busca em profundidade (DFS)</strong>:</li>
+<li>Pré-ordem</li>
+<li>Em-ordem</li>
+<li>Pós-ordem</li>
+<li><strong>Busca em largura (BFS)</strong>:</li>
+<li>Percorre nível a nível (usa fila)</li>
+</ul>
+<p>Em BST, busca por chave usa a propriedade de ordenação (não precisa percorrer tudo).</p>
+<hr />
+<h2 id="exemplo-de-uso">Exemplo de uso</h2>
+<pre><code class="language-c">#include &quot;arvore.h&quot;
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    No *raiz = NULL;
+
+    raiz = arvore_inserir(raiz, 40);
+    raiz = arvore_inserir(raiz, 20);
+    raiz = arvore_inserir(raiz, 60);
+    raiz = arvore_inserir(raiz, 10);
+    raiz = arvore_inserir(raiz, 30);
+
+    printf(&quot;Em ordem: &quot;);
+    arvore_em_ordem(raiz);
+    printf(&quot;\n&quot;);
+
+    arvore_destruir(raiz);
+    return 0;
+}
+</code></pre>
+<hr />
+<h2 id="compilar-e-executar">Compilar e executar</h2>
+<pre><code class="language-bash">cd Árvore
+make
+make run
+make test
+make clean
+</code></pre>
+<hr />
+<p>Voltar para o <a href="./README.md">índice da documentação</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../TabelaHash/" class="btn btn-neutral float-left" title="Tabela Hash"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../AVL/" class="btn btn-neutral float-right" title="AVL">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C" class="fa fa-code-fork" style="color: #fcfcfc"> tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+        </span>
+    
+    
+      <span><a href="../TabelaHash/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../AVL/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../vercel-analytics.js"></script>
+      <script src="https://va.vercel-scripts.com/v1/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

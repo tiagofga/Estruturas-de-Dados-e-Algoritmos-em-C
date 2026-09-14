@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://tiagofga.github.io/Estruturas-de-Dados-e-Algoritmos-em-C/MetodosOrdenacao/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Métodos de ordenação - Estruturas de Dados e Algoritmos em C</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "M\u00e9todos de ordena\u00e7\u00e3o";
+        var mkdocs_page_input_path = "MetodosOrdenacao.md";
+        var mkdocs_page_url = "/Estruturas-de-Dados-e-Algoritmos-em-C/MetodosOrdenacao/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Estruturas de Dados e Algoritmos em C
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../RoteiroAulas/">Roteiro de aulas</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Fundamentos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../TAD/">Tipos Abstratos de Dados</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Algoritmos/">Algoritmos e complexidade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../CustoComputacional/">Custo computacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../EstaticoVsDinamico/">Estruturas estáticas e dinâmicas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../SegurancaMemoria/">Segurança de memória</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Estruturas lineares</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Lista/">Lista</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ListasEncadeadas/">Listas encadeadas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Pilha/">Pilha</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Fila/">Fila</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Heap e Hash</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Heap/">Heap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../TabelaHash/">Tabela Hash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Árvores</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Arvore/">Árvore Binária de Busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AVL/">AVL</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Grafos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Grafo/">Conceitos e matriz de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GrafoListaAdjacencia/">Lista de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AlgoritmosGrafos/">Algoritmos de grafos</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Busca e ordenação</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../MetodosBusca/">Métodos de busca</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Métodos de ordenação</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projeto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../OrganizacaoRepositorio/">Organização do repositório</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Makefiles/">Makefiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AliasesASCII/">Aliases ASCII</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PadraoNomes/">Padrão de nomes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Benchmarks/">Benchmarks</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../en/">English</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C">Repositório no GitHub</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Estruturas de Dados e Algoritmos em C</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Busca e ordenação</li>
+      <li class="breadcrumb-item active">Métodos de ordenação</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C/edit/master/docs/MetodosOrdenacao.md">Edit on tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="metodos-de-ordenacao-referencia-de-complexidade">Métodos de Ordenação — Referência de Complexidade</h1>
+<p>Este documento é a referência detalhada dos algoritmos de ordenação implementados no módulo
+<a href="../Ordenacao/Métodos%20de%20Ordenação">Métodos de Ordenação</a>.</p>
+<hr />
+<h2 id="notacao-usada">Notação usada</h2>
+<table>
+<thead>
+<tr>
+<th>Símbolo</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n</td>
+<td>número de elementos no vetor</td>
+</tr>
+<tr>
+<td>O(f(n))</td>
+<td>limite assintótico superior (pior caso ou caso médio)</td>
+</tr>
+<tr>
+<td>Ω(f(n))</td>
+<td>limite assintótico inferior (melhor caso)</td>
+</tr>
+<tr>
+<td>Θ(f(n))</td>
+<td>limite exato (melhor = pior = médio)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-bubble-sort">1. Bubble Sort</h2>
+<p><strong>Ideia:</strong> compara pares adjacentes e troca quando fora de ordem; repete até não haver trocas.</p>
+<table>
+<thead>
+<tr>
+<th>Caso</th>
+<th>Tempo</th>
+<th>Condição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Melhor</td>
+<td>Ω(n)</td>
+<td>vetor já ordenado (otimização de parada)</td>
+</tr>
+<tr>
+<td>Médio</td>
+<td>O(n²)</td>
+<td></td>
+</tr>
+<tr>
+<td>Pior</td>
+<td>O(n²)</td>
+<td>vetor em ordem inversa</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Espaço extra:</strong> O(1)</li>
+<li><strong>Estável:</strong> sim</li>
+<li><strong>Custo em vetor:</strong> acessos sequenciais — excelente localidade de cache, mas alto número de trocas.</li>
+</ul>
+<hr />
+<h2 id="2-insertion-sort">2. Insertion Sort</h2>
+<p><strong>Ideia:</strong> mantém prefixo ordenado e insere cada novo elemento no lugar correto deslocando os maiores.</p>
+<table>
+<thead>
+<tr>
+<th>Caso</th>
+<th>Tempo</th>
+<th>Condição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Melhor</td>
+<td>Ω(n)</td>
+<td>vetor já ordenado</td>
+</tr>
+<tr>
+<td>Médio</td>
+<td>O(n²)</td>
+<td></td>
+</tr>
+<tr>
+<td>Pior</td>
+<td>O(n²)</td>
+<td>vetor em ordem inversa</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Espaço extra:</strong> O(1)</li>
+<li><strong>Estável:</strong> sim</li>
+<li><strong>Custo em vetor:</strong> deslocamentos são O(n) por elemento no pior caso; ótimo para n pequeno ou quase-ordenado.</li>
+</ul>
+<hr />
+<h2 id="3-selection-sort">3. Selection Sort</h2>
+<p><strong>Ideia:</strong> encontra o menor elemento da parte não ordenada e o coloca na posição correta.</p>
+<table>
+<thead>
+<tr>
+<th>Caso</th>
+<th>Tempo</th>
+<th>Condição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Melhor</td>
+<td>Θ(n²)</td>
+<td>independente dos dados</td>
+</tr>
+<tr>
+<td>Médio</td>
+<td>Θ(n²)</td>
+<td></td>
+</tr>
+<tr>
+<td>Pior</td>
+<td>Θ(n²)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Espaço extra:</strong> O(1)</li>
+<li><strong>Estável:</strong> não (troca pode quebrar ordem relativa de iguais)</li>
+<li><strong>Custo em vetor:</strong> sempre O(n) trocas — indicado quando trocas são caras e comparações são baratas.</li>
+</ul>
+<hr />
+<h2 id="4-merge-sort">4. Merge Sort</h2>
+<p><strong>Ideia:</strong> divide o vetor ao meio recursivamente; intercala (merge) subvetores já ordenados.</p>
+<table>
+<thead>
+<tr>
+<th>Caso</th>
+<th>Tempo</th>
+<th>Condição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Melhor</td>
+<td>Θ(n log n)</td>
+<td></td>
+</tr>
+<tr>
+<td>Médio</td>
+<td>Θ(n log n)</td>
+<td></td>
+</tr>
+<tr>
+<td>Pior</td>
+<td>Θ(n log n)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Espaço extra:</strong> O(n) — buffers temporários para a etapa de intercalação</li>
+<li><strong>Estável:</strong> sim</li>
+<li><strong>Custo em vetor:</strong> requer alocação dinâmica; garantia de O(n log n) em todos os cenários.</li>
+</ul>
+<hr />
+<h2 id="5-quick-sort">5. Quick Sort</h2>
+<p><strong>Ideia:</strong> escolhe pivô (mediana de três neste módulo), particiona em menores/maiores e ordena recursivamente.</p>
+<table>
+<thead>
+<tr>
+<th>Caso</th>
+<th>Tempo</th>
+<th>Condição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Melhor</td>
+<td>Ω(n log n)</td>
+<td>partições equilibradas</td>
+</tr>
+<tr>
+<td>Médio</td>
+<td>O(n log n)</td>
+<td></td>
+</tr>
+<tr>
+<td>Pior</td>
+<td>O(n²)</td>
+<td>pivôs extremos (mitigado pela mediana de três)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Espaço extra:</strong> O(log n) médio (pilha de recursão); O(n) pior caso</li>
+<li><strong>Estável:</strong> não (implementação in-place clássica)</li>
+<li><strong>Custo em vetor:</strong> in-place e cache-friendly; melhor desempenho prático médio.</li>
+</ul>
+<hr />
+<h2 id="6-heap-sort">6. Heap Sort</h2>
+<p><strong>Ideia:</strong> constrói heap máximo no próprio vetor; extrai repetidamente o maior para o final.</p>
+<table>
+<thead>
+<tr>
+<th>Caso</th>
+<th>Tempo</th>
+<th>Condição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Melhor</td>
+<td>Θ(n log n)</td>
+<td></td>
+</tr>
+<tr>
+<td>Médio</td>
+<td>Θ(n log n)</td>
+<td></td>
+</tr>
+<tr>
+<td>Pior</td>
+<td>Θ(n log n)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Espaço extra:</strong> O(1) — in-place</li>
+<li><strong>Estável:</strong> não</li>
+<li><strong>Custo em vetor:</strong> acessos não sequenciais ao heap reduzem localidade de cache; compensa pela garantia de O(n log n) com O(1) espaço.</li>
+</ul>
+<hr />
+<h2 id="tabela-comparativa">Tabela comparativa</h2>
+<table>
+<thead>
+<tr>
+<th>Algoritmo</th>
+<th>Melhor</th>
+<th>Médio</th>
+<th>Pior</th>
+<th>Espaço extra</th>
+<th>Estável</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bubble</td>
+<td>Ω(n)</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Insertion</td>
+<td>Ω(n)</td>
+<td>O(n²)</td>
+<td>O(n²)</td>
+<td>O(1)</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Selection</td>
+<td>Θ(n²)</td>
+<td>Θ(n²)</td>
+<td>Θ(n²)</td>
+<td>O(1)</td>
+<td>Não</td>
+</tr>
+<tr>
+<td>Merge</td>
+<td>Θ(n log n)</td>
+<td>Θ(n log n)</td>
+<td>Θ(n log n)</td>
+<td>O(n)</td>
+<td>Sim</td>
+</tr>
+<tr>
+<td>Quick</td>
+<td>Ω(n log n)</td>
+<td>O(n log n)</td>
+<td>O(n²)</td>
+<td>O(log n)</td>
+<td>Não</td>
+</tr>
+<tr>
+<td>Heap</td>
+<td>Θ(n log n)</td>
+<td>Θ(n log n)</td>
+<td>Θ(n log n)</td>
+<td>O(1)</td>
+<td>Não</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="como-escolher">Como escolher</h2>
+<table>
+<thead>
+<tr>
+<th>Situação</th>
+<th>Algoritmo recomendado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vetor pequeno (≤ ~20 elementos)</td>
+<td>Insertion Sort</td>
+</tr>
+<tr>
+<td>Vetor quase ordenado</td>
+<td>Insertion Sort ou Bubble Sort</td>
+</tr>
+<tr>
+<td>Estabilidade obrigatória</td>
+<td>Merge Sort</td>
+</tr>
+<tr>
+<td>Melhor desempenho médio geral</td>
+<td>Quick Sort</td>
+</tr>
+<tr>
+<td>O(n log n) garantido com O(1) espaço</td>
+<td>Heap Sort</td>
+</tr>
+<tr>
+<td>Minimizar trocas de elementos</td>
+<td>Selection Sort</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Voltar para o <a href="./README.md">índice da documentação</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../MetodosBusca/" class="btn btn-neutral float-left" title="Métodos de busca"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../OrganizacaoRepositorio/" class="btn btn-neutral float-right" title="Organização do repositório">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C" class="fa fa-code-fork" style="color: #fcfcfc"> tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+        </span>
+    
+    
+      <span><a href="../MetodosBusca/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../OrganizacaoRepositorio/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../vercel-analytics.js"></script>
+      <script src="https://va.vercel-scripts.com/v1/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://tiagofga.github.io/Estruturas-de-Dados-e-Algoritmos-em-C/en/Graph/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Graph — Adjacency Matrix and Graph Algorithms - Estruturas de Dados e Algoritmos em C</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Graph \u2014 Adjacency Matrix and Graph Algorithms";
+        var mkdocs_page_input_path = "en/Graph.md";
+        var mkdocs_page_url = "/Estruturas-de-Dados-e-Algoritmos-em-C/en/Graph/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Estruturas de Dados e Algoritmos em C
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../RoteiroAulas/">Roteiro de aulas</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Fundamentos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../TAD/">Tipos Abstratos de Dados</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Algoritmos/">Algoritmos e complexidade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../CustoComputacional/">Custo computacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EstaticoVsDinamico/">Estruturas estáticas e dinâmicas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../SegurancaMemoria/">Segurança de memória</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Estruturas lineares</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Lista/">Lista</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ListasEncadeadas/">Listas encadeadas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Pilha/">Pilha</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Fila/">Fila</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Heap e Hash</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Heap/">Heap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../TabelaHash/">Tabela Hash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Árvores</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Arvore/">Árvore Binária de Busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../AVL/">AVL</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Grafos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Grafo/">Conceitos e matriz de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../GrafoListaAdjacencia/">Lista de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../AlgoritmosGrafos/">Algoritmos de grafos</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Busca e ordenação</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../MetodosBusca/">Métodos de busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../MetodosOrdenacao/">Métodos de ordenação</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projeto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../OrganizacaoRepositorio/">Organização do repositório</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Makefiles/">Makefiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../AliasesASCII/">Aliases ASCII</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../PadraoNomes/">Padrão de nomes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Benchmarks/">Benchmarks</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">English</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C">Repositório no GitHub</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Estruturas de Dados e Algoritmos em C</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Graph — Adjacency Matrix and Graph Algorithms</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C/edit/master/docs/en/Graph.md">Edit on tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="graph-adjacency-matrix-and-graph-algorithms">Graph — Adjacency Matrix and Graph Algorithms</h1>
+<p><a href="../../Grafo/">Português</a> | <strong>English</strong></p>
+<h2 id="overview">Overview</h2>
+<p>Implementation of a graph in C using an <strong>adjacency matrix</strong>. The module supports directed and undirected graphs, unweighted and positively weighted edges, and basic graph algorithms.</p>
+<p>The adjacency matrix representation provides O(1) edge lookup, but uses O(V²) memory, where <code>V</code> is the number of vertices.</p>
+<hr />
+<h2 id="data-structure">Data structure</h2>
+<pre><code class="language-c">/* include/grafo.h */
+typedef struct {
+    size_t vertices;
+    int direcionado;
+    int **matriz;
+} Grafo;
+</code></pre>
+<p>The graph stores the number of vertices, whether it is directed, and an adjacency matrix. In the matrix, <code>0</code> means “no edge” and any positive value is the edge weight. For unweighted edges, the stored weight is <code>1</code>.</p>
+<hr />
+<h2 id="main-operations">Main operations</h2>
+<pre><code class="language-c">int grafo_criar(Grafo *grafo, size_t vertices);
+int grafo_criar_direcionado(Grafo *grafo, size_t vertices, int direcionado);
+void grafo_destruir(Grafo *grafo);
+int grafo_adicionar_aresta(Grafo *grafo, size_t origem, size_t destino);
+int grafo_adicionar_aresta_ponderada(Grafo *grafo, size_t origem, size_t destino, int peso);
+int grafo_remover_aresta(Grafo *grafo, size_t origem, size_t destino);
+int grafo_tem_aresta(const Grafo *grafo, size_t origem, size_t destino);
+int grafo_bfs(const Grafo *grafo, size_t inicio, size_t *ordem, size_t capacidade, size_t *visitados);
+int grafo_dfs(const Grafo *grafo, size_t inicio, size_t *ordem, size_t capacidade, size_t *visitados);
+int grafo_dijkstra(const Grafo *grafo, size_t origem, int *distancias, size_t capacidade);
+int grafo_ordenacao_topologica(const Grafo *grafo, size_t *ordem, size_t capacidade, size_t *tamanho_ordem);
+void grafo_imprimir(const Grafo *grafo);
+</code></pre>
+<hr />
+<h2 id="edge-operations">Edge operations</h2>
+<h3 id="grafo_adicionar_aresta"><code>grafo_adicionar_aresta</code></h3>
+<p>Adds an unweighted edge with weight <code>1</code>. It is a shortcut for <code>grafo_adicionar_aresta_ponderada(..., 1)</code>.</p>
+<h3 id="grafo_adicionar_aresta_ponderada"><code>grafo_adicionar_aresta_ponderada</code></h3>
+<p>Adds an edge with a positive integer weight.</p>
+<ul>
+<li>Weight must be greater than zero.</li>
+<li>In undirected graphs, both directions receive the same weight.</li>
+<li>This function is used by Dijkstra's algorithm.</li>
+</ul>
+<h3 id="grafo_tem_aresta"><code>grafo_tem_aresta</code></h3>
+<p>Returns the stored edge weight, or <code>0</code> when the edge does not exist or the parameters are invalid.</p>
+<hr />
+<h2 id="algorithms">Algorithms</h2>
+<h3 id="breadth-first-search-bfs">Breadth-First Search (BFS)</h3>
+<p>Visits vertices level by level from a source vertex and writes the visit order to <code>ordem</code>.</p>
+<ul>
+<li><strong>Complexity with adjacency matrix</strong>: O(V²)</li>
+</ul>
+<h3 id="depth-first-search-dfs">Depth-First Search (DFS)</h3>
+<p>Explores each branch as deeply as possible before backtracking and writes the visit order to <code>ordem</code>.</p>
+<ul>
+<li><strong>Complexity with adjacency matrix</strong>: O(V²)</li>
+</ul>
+<h3 id="dijkstra">Dijkstra</h3>
+<p>Computes shortest paths from a source vertex using positive edge weights.</p>
+<ul>
+<li><strong>Complexity with adjacency matrix</strong>: O(V²)</li>
+<li>Does not support negative weights.</li>
+</ul>
+<h3 id="topological-sort">Topological sort</h3>
+<p>Computes a valid topological ordering for directed acyclic graphs (DAGs).</p>
+<ul>
+<li><strong>Complexity with adjacency matrix</strong>: O(V²)</li>
+</ul>
+<hr />
+<h2 id="complexity-summary">Complexity summary</h2>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Edge lookup</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Add/remove edge</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>BFS</td>
+<td>O(V²)</td>
+</tr>
+<tr>
+<td>DFS</td>
+<td>O(V²)</td>
+</tr>
+<tr>
+<td>Dijkstra</td>
+<td>O(V²)</td>
+</tr>
+<tr>
+<td>Topological sort</td>
+<td>O(V²)</td>
+</tr>
+<tr>
+<td>Memory usage</td>
+<td>O(V²)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="matrix-vs-adjacency-list">Matrix vs. Adjacency List</h2>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Matrix</th>
+<th>List</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Space</td>
+<td>O(V²)</td>
+<td>O(V + E)</td>
+</tr>
+<tr>
+<td>Edge lookup</td>
+<td>O(1)</td>
+<td>O(degree)</td>
+</tr>
+<tr>
+<td>Neighbor iteration</td>
+<td>O(V)</td>
+<td>O(degree)</td>
+</tr>
+<tr>
+<td>Best fit</td>
+<td>Dense graphs</td>
+<td>Sparse graphs</td>
+</tr>
+</tbody>
+</table>
+<p>The repository also includes <a href="../AdjacencyListGraph/">AdjacencyListGraph</a> for sparse graphs.</p>
+<hr />
+<p>Back to the <a href="../">documentation index</a>.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C" class="fa fa-code-fork" style="color: #fcfcfc"> tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../vercel-analytics.js"></script>
+      <script src="https://va.vercel-scripts.com/v1/script.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

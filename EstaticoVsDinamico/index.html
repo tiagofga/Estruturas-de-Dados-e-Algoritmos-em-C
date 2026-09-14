@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://tiagofga.github.io/Estruturas-de-Dados-e-Algoritmos-em-C/EstaticoVsDinamico/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Estruturas estáticas e dinâmicas - Estruturas de Dados e Algoritmos em C</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Estruturas est\u00e1ticas e din\u00e2micas";
+        var mkdocs_page_input_path = "EstaticoVsDinamico.md";
+        var mkdocs_page_url = "/Estruturas-de-Dados-e-Algoritmos-em-C/EstaticoVsDinamico/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Estruturas de Dados e Algoritmos em C
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../RoteiroAulas/">Roteiro de aulas</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Fundamentos</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../TAD/">Tipos Abstratos de Dados</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Algoritmos/">Algoritmos e complexidade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../CustoComputacional/">Custo computacional</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Estruturas estáticas e dinâmicas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../SegurancaMemoria/">Segurança de memória</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Estruturas lineares</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Lista/">Lista</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ListasEncadeadas/">Listas encadeadas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Pilha/">Pilha</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Fila/">Fila</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Heap e Hash</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Heap/">Heap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../TabelaHash/">Tabela Hash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Árvores</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Arvore/">Árvore Binária de Busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AVL/">AVL</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Grafos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Grafo/">Conceitos e matriz de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GrafoListaAdjacencia/">Lista de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AlgoritmosGrafos/">Algoritmos de grafos</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Busca e ordenação</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../MetodosBusca/">Métodos de busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../MetodosOrdenacao/">Métodos de ordenação</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projeto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../OrganizacaoRepositorio/">Organização do repositório</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Makefiles/">Makefiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AliasesASCII/">Aliases ASCII</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PadraoNomes/">Padrão de nomes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Benchmarks/">Benchmarks</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../en/">English</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C">Repositório no GitHub</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Estruturas de Dados e Algoritmos em C</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Fundamentos</li>
+      <li class="breadcrumb-item active">Estruturas estáticas e dinâmicas</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C/edit/master/docs/EstaticoVsDinamico.md">Edit on tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="lista-fila-e-pilha-estatica-vs-dinamica-com-ponteiros">Lista, Fila e Pilha — Estática vs Dinâmica (com ponteiros)</h1>
+<h2 id="implementacoes-deste-repositorio">Implementações deste repositório</h2>
+<p>As duas versões (estática e dinâmica) para <strong>Lista</strong>, <strong>Fila</strong> e <strong>Pilha</strong> já estão implementadas no código.</p>
+<ul>
+<li><strong>Dinâmica</strong>: <code>src/lista.c</code>, <code>src/fila.c</code>, <code>src/pilha.c</code></li>
+<li><strong>Estática</strong>: <code>src/lista_estatica.c</code>, <code>src/fila_estatica.c</code>, <code>src/pilha_estatica.c</code></li>
+</ul>
+<p>Todas as estruturas usam <strong>ponteiros</strong> para acessar e alterar dados via funções:</p>
+<ul>
+<li><code>Lista *lista</code>, <code>Fila *fila</code>, <code>Pilha *pilha</code></li>
+<li>arrays alocados no heap com <code>malloc/calloc</code> e liberados com <code>free</code></li>
+</ul>
+<hr />
+<h2 id="diferenca-estrutura-estatica-x-dinamica">Diferença: estrutura estática x dinâmica</h2>
+<h2 id="1-estatica">1) Estática</h2>
+<p>A memória é definida em tempo de compilação (ou fixada no escopo local) e não cresce.</p>
+<p>Exemplo conceitual:</p>
+<ul>
+<li><code>int dados[100];</code></li>
+</ul>
+<h3 id="vantagens">Vantagens</h3>
+<ul>
+<li>Simples de implementar.</li>
+<li>Sem custo de alocação dinâmica em runtime.</li>
+</ul>
+<h3 id="desvantagens">Desvantagens</h3>
+<ul>
+<li>Capacidade rígida.</li>
+<li>Pode desperdiçar memória.</li>
+<li>Limite máximo fixo.</li>
+</ul>
+<hr />
+<h2 id="2-dinamica">2) Dinâmica</h2>
+<p>A memória é alocada em runtime no heap usando ponteiros.</p>
+<p>Exemplo conceitual:</p>
+<ul>
+<li><code>int *dados = malloc(capacidade * sizeof(int));</code></li>
+</ul>
+<h3 id="vantagens_1">Vantagens</h3>
+<ul>
+<li>Flexível para diferentes tamanhos.</li>
+<li>Melhor aproveitamento de memória para entradas variáveis.</li>
+</ul>
+<h3 id="desvantagens_1">Desvantagens</h3>
+<ul>
+<li>Exige controle manual (<code>malloc/calloc/free</code>).</li>
+<li>Risco de vazamento se não liberar memória corretamente.</li>
+</ul>
+<hr />
+<h2 id="comparativo-rapido">Comparativo rápido</h2>
+<table>
+<thead>
+<tr>
+<th>Estrutura</th>
+<th>Versão estática</th>
+<th>Versão dinâmica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lista</td>
+<td>Array fixo (<code>int dados[N]</code>)</td>
+<td>Array com ponteiro e realocação (<code>int *dados</code>, <code>realloc</code>)</td>
+</tr>
+<tr>
+<td>Fila</td>
+<td>Buffer circular fixo (<code>int dados[N]</code>)</td>
+<td>Buffer circular no heap (<code>int *dados</code>)</td>
+</tr>
+<tr>
+<td>Pilha</td>
+<td>Array fixo com topo</td>
+<td>Array no heap com topo/tamanho</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="sobre-uso-de-ponteiros">Sobre uso de ponteiros</h2>
+<p>Neste projeto, o padrão é:</p>
+<ol>
+<li>Criar estrutura (<code>*_criar</code>) com alocação dinâmica.</li>
+<li>Passar ponteiro da estrutura para operações (<code>*_inserir</code>, <code>*_remover</code>, etc.).</li>
+<li>Destruir estrutura (<code>*_destruir</code>) para liberar memória.</li>
+</ol>
+<p>Isso garante manipulação eficiente sem copiar estruturas inteiras entre chamadas.</p>
+<p>Para Lista/Fila/Pilha, o Makefile agora oferece duas opções de execução:</p>
+<ul>
+<li><code>make run</code> (implementação dinâmica)</li>
+<li><code>make run_static</code> (implementação estática)</li>
+</ul>
+<hr />
+<p>Voltar para o <a href="./README.md">índice da documentação</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../CustoComputacional/" class="btn btn-neutral float-left" title="Custo computacional"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../SegurancaMemoria/" class="btn btn-neutral float-right" title="Segurança de memória">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C" class="fa fa-code-fork" style="color: #fcfcfc"> tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+        </span>
+    
+    
+      <span><a href="../CustoComputacional/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../SegurancaMemoria/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../vercel-analytics.js"></script>
+      <script src="https://va.vercel-scripts.com/v1/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

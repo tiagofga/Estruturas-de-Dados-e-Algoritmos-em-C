@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://tiagofga.github.io/Estruturas-de-Dados-e-Algoritmos-em-C/en/MemorySafety/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Memory Safety and Allocation - Estruturas de Dados e Algoritmos em C</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Memory Safety and Allocation";
+        var mkdocs_page_input_path = "en/MemorySafety.md";
+        var mkdocs_page_url = "/Estruturas-de-Dados-e-Algoritmos-em-C/en/MemorySafety/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Estruturas de Dados e Algoritmos em C
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../RoteiroAulas/">Roteiro de aulas</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Fundamentos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../TAD/">Tipos Abstratos de Dados</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Algoritmos/">Algoritmos e complexidade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../CustoComputacional/">Custo computacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../EstaticoVsDinamico/">Estruturas estáticas e dinâmicas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../SegurancaMemoria/">Segurança de memória</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Estruturas lineares</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Lista/">Lista</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ListasEncadeadas/">Listas encadeadas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Pilha/">Pilha</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Fila/">Fila</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Heap e Hash</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Heap/">Heap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../TabelaHash/">Tabela Hash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Árvores</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Arvore/">Árvore Binária de Busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../AVL/">AVL</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Grafos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Grafo/">Conceitos e matriz de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../GrafoListaAdjacencia/">Lista de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../AlgoritmosGrafos/">Algoritmos de grafos</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Busca e ordenação</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../MetodosBusca/">Métodos de busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../MetodosOrdenacao/">Métodos de ordenação</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projeto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../OrganizacaoRepositorio/">Organização do repositório</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Makefiles/">Makefiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../AliasesASCII/">Aliases ASCII</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../PadraoNomes/">Padrão de nomes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../Benchmarks/">Benchmarks</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../">English</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C">Repositório no GitHub</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Estruturas de Dados e Algoritmos em C</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Memory Safety and Allocation</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C/edit/master/docs/en/MemorySafety.md">Edit on tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="memory-safety-and-allocation">Memory Safety and Allocation</h1>
+<p><a href="../../SegurancaMemoria/">Português</a> | <strong>English</strong></p>
+<p>This project uses C with manual allocation, so implementations follow a small contract:</p>
+<ul>
+<li>creation functions return <code>0</code> or <code>NULL</code> for invalid parameters or allocation failures;</li>
+<li>destroy functions accept <code>NULL</code> pointers and reset public structures to a reusable empty state;</li>
+<li>operations on destroyed structures are rejected when <code>dados == NULL</code>, <code>matriz == NULL</code>, <code>adjacencias == NULL</code>, or <code>capacidade == 0</code>;</li>
+<li>sizes are checked before multiplications such as <code>capacidade * sizeof(int)</code> to avoid <code>size_t</code> overflow;</li>
+<li><code>realloc</code> always writes to a temporary pointer before updating the structure, preserving the original buffer on failure;</li>
+<li>weighted graph algorithms check <code>int</code> overflow before relaxing distances or accumulating total weight.</li>
+</ul>
+<h2 id="shared-helper">Shared Helper</h2>
+<p><a href="../../include/comum/memoria_segura.h"><code>include/comum/memoria_segura.h</code></a> centralizes the size checks used by the modules:</p>
+<pre><code class="language-c">memoria_multiplicacao_valida(quantidade, sizeof(Tipo))
+memoria_dobro_valido(capacidade, &amp;nova_capacidade)
+memoria_alocar_vetor(quantidade, sizeof(Tipo))
+memoria_alocar_vetor_zero(quantidade, sizeof(Tipo))
+memoria_realocar_vetor(ptr, quantidade, sizeof(Tipo))
+</code></pre>
+<p>These functions are <code>static inline</code>, so any module can include them without adding extra linker symbols.</p>
+<h2 id="files">Files</h2>
+<p>The current modules do not persist data to files: there is no <code>fopen</code>, <code>fscanf</code>, file <code>fprintf</code>, or path buffer handling. Existing output uses <code>printf</code> only for demos in <code>main.c</code>, tests, and benchmarks.</p>
+<p>When file routines are added, use this minimum pattern:</p>
+<ul>
+<li>validate path and mode pointers before calling <code>fopen</code>;</li>
+<li>check the return value of <code>fopen</code>, <code>fread</code>, <code>fwrite</code>, <code>fprintf</code>, and <code>fclose</code>;</li>
+<li>avoid <code>scanf</code>/<code>fscanf</code> without maximum string widths;</li>
+<li>prefer <code>fgets</code> plus controlled conversion for text input;</li>
+<li>close the file on every error path.</li>
+</ul>
+<h2 id="validation">Validation</h2>
+<p>Run:</p>
+<pre><code class="language-sh">make test
+make sanitize
+</code></pre>
+<p><code>make test</code> builds every module with <code>-Wall -Wextra -Werror</code>. <code>make sanitize</code> runs the configured modules with AddressSanitizer and UndefinedBehaviorSanitizer.</p>
+<p>Back to the <a href="../">documentation index</a>.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C" class="fa fa-code-fork" style="color: #fcfcfc"> tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../vercel-analytics.js"></script>
+      <script src="https://va.vercel-scripts.com/v1/script.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

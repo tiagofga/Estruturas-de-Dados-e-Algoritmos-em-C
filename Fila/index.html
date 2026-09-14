@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://tiagofga.github.io/Estruturas-de-Dados-e-Algoritmos-em-C/Fila/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Fila - Estruturas de Dados e Algoritmos em C</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Fila";
+        var mkdocs_page_input_path = "Fila.md";
+        var mkdocs_page_url = "/Estruturas-de-Dados-e-Algoritmos-em-C/Fila/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Estruturas de Dados e Algoritmos em C
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Início</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../RoteiroAulas/">Roteiro de aulas</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Fundamentos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../TAD/">Tipos Abstratos de Dados</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Algoritmos/">Algoritmos e complexidade</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../CustoComputacional/">Custo computacional</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../EstaticoVsDinamico/">Estruturas estáticas e dinâmicas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../SegurancaMemoria/">Segurança de memória</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Estruturas lineares</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../Lista/">Lista</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ListasEncadeadas/">Listas encadeadas</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Pilha/">Pilha</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Fila</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Heap e Hash</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Heap/">Heap</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../TabelaHash/">Tabela Hash</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Árvores</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Arvore/">Árvore Binária de Busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AVL/">AVL</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Grafos</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Grafo/">Conceitos e matriz de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../GrafoListaAdjacencia/">Lista de adjacência</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AlgoritmosGrafos/">Algoritmos de grafos</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Busca e ordenação</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../MetodosBusca/">Métodos de busca</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../MetodosOrdenacao/">Métodos de ordenação</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Projeto</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../OrganizacaoRepositorio/">Organização do repositório</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Makefiles/">Makefiles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../AliasesASCII/">Aliases ASCII</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../PadraoNomes/">Padrão de nomes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Benchmarks/">Benchmarks</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../en/">English</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C">Repositório no GitHub</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Estruturas de Dados e Algoritmos em C</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Estruturas lineares</li>
+      <li class="breadcrumb-item active">Fila</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C/edit/master/docs/Fila.md">Edit on tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="fila-fila-circular-fifo">Fila — Fila Circular (FIFO)</h1>
+<h2 id="visao-geral">Visão geral</h2>
+<p>Implementação de uma <strong>fila circular</strong> (ring buffer) em C com capacidade fixa.
+Segue a política <strong>FIFO</strong> (First In, First Out): o primeiro elemento inserido é o
+primeiro a ser removido. O uso de índices circulares evita deslocamento de elementos,
+mantendo enfileirar e desenfileirar em O(1).</p>
+<hr />
+<h2 id="estrutura-de-dados">Estrutura de dados</h2>
+<pre><code class="language-c">/* include/fila.h */
+typedef struct {
+    int    *dados;      /* array circular de elementos */
+    size_t  capacidade; /* capacidade máxima (fixa) */
+    size_t  tamanho;    /* número de elementos presentes */
+    size_t  inicio;     /* índice do próximo elemento a sair */
+    size_t  fim;        /* índice da próxima posição livre */
+} Fila;
+</code></pre>
+<h3 id="campos">Campos</h3>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dados</code></td>
+<td><code>int *</code></td>
+<td>Array alocado dinamicamente no heap</td>
+</tr>
+<tr>
+<td><code>capacidade</code></td>
+<td><code>size_t</code></td>
+<td>Número máximo de elementos (imutável após criação)</td>
+</tr>
+<tr>
+<td><code>tamanho</code></td>
+<td><code>size_t</code></td>
+<td>Quantidade de elementos presentes</td>
+</tr>
+<tr>
+<td><code>inicio</code></td>
+<td><code>size_t</code></td>
+<td>Índice do elemento na frente da fila</td>
+</tr>
+<tr>
+<td><code>fim</code></td>
+<td><code>size_t</code></td>
+<td>Índice onde o próximo elemento será inserido</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="interface-publica">Interface pública</h2>
+<pre><code class="language-c">int  fila_criar(Fila *fila, size_t capacidade);
+void fila_destruir(Fila *fila);
+int  fila_vazia(const Fila *fila);
+int  fila_cheia(const Fila *fila);
+int  fila_enfileirar(Fila *fila, int valor);
+int  fila_desenfileirar(Fila *fila, int *valor_removido);
+int  fila_frente(const Fila *fila, int *valor);
+void fila_imprimir(const Fila *fila);
+</code></pre>
+<hr />
+<h2 id="operacoes-detalhadas">Operações detalhadas</h2>
+<h3 id="fila_criar"><code>fila_criar</code></h3>
+<pre><code class="language-c">int fila_criar(Fila *fila, size_t capacidade);
+</code></pre>
+<p>Inicializa a fila alocando <code>capacidade</code> posições.</p>
+<ul>
+<li><strong>Retorna</strong> <code>1</code> em caso de sucesso, <code>0</code> se <code>fila == NULL</code>, <code>capacidade == 0</code>
+  ou falha de alocação.</li>
+<li>Após a chamada, <code>inicio == 0</code>, <code>fim == 0</code>, <code>tamanho == 0</code>.</li>
+</ul>
+<hr />
+<h3 id="fila_destruir"><code>fila_destruir</code></h3>
+<pre><code class="language-c">void fila_destruir(Fila *fila);
+</code></pre>
+<p>Libera o array e zera todos os campos. Seguro com <code>fila == NULL</code>.</p>
+<hr />
+<h3 id="fila_vazia"><code>fila_vazia</code></h3>
+<pre><code class="language-c">int fila_vazia(const Fila *fila);
+</code></pre>
+<ul>
+<li><strong>Retorna</strong> <code>1</code> se <code>fila == NULL</code> ou <code>tamanho == 0</code>, <code>0</code> caso contrário.</li>
+</ul>
+<hr />
+<h3 id="fila_cheia"><code>fila_cheia</code></h3>
+<pre><code class="language-c">int fila_cheia(const Fila *fila);
+</code></pre>
+<ul>
+<li><strong>Retorna</strong> <code>1</code> se <code>tamanho == capacidade</code>, <code>0</code> caso contrário.</li>
+</ul>
+<hr />
+<h3 id="fila_enfileirar"><code>fila_enfileirar</code></h3>
+<pre><code class="language-c">int fila_enfileirar(Fila *fila, int valor);
+</code></pre>
+<p>Insere <code>valor</code> no fim da fila.</p>
+<ul>
+<li>Falha se a fila estiver cheia.</li>
+<li>Avança <code>fim</code> de forma circular: <code>fim = (fim + 1) % capacidade</code>.</li>
+<li><strong>Complexidade</strong>: O(1).</li>
+<li><strong>Retorna</strong> <code>1</code> em caso de sucesso, <code>0</code> se fila cheia ou <code>NULL</code>.</li>
+</ul>
+<hr />
+<h3 id="fila_desenfileirar"><code>fila_desenfileirar</code></h3>
+<pre><code class="language-c">int fila_desenfileirar(Fila *fila, int *valor_removido);
+</code></pre>
+<p>Remove e retorna o elemento da frente.</p>
+<ul>
+<li>Se <code>valor_removido != NULL</code>, grava o valor no endereço apontado.</li>
+<li>Avança <code>inicio</code> de forma circular: <code>inicio = (inicio + 1) % capacidade</code>.</li>
+<li><strong>Complexidade</strong>: O(1).</li>
+<li><strong>Retorna</strong> <code>1</code> em caso de sucesso, <code>0</code> se fila vazia ou <code>NULL</code>.</li>
+</ul>
+<hr />
+<h3 id="fila_frente"><code>fila_frente</code></h3>
+<pre><code class="language-c">int fila_frente(const Fila *fila, int *valor);
+</code></pre>
+<p>Consulta o elemento da frente sem removê-lo.</p>
+<ul>
+<li>Grava o valor em <code>*valor</code> (que deve ser não-NULL).</li>
+<li><strong>Complexidade</strong>: O(1).</li>
+<li><strong>Retorna</strong> <code>1</code> em caso de sucesso, <code>0</code> se fila vazia, <code>NULL</code> ou <code>valor == NULL</code>.</li>
+</ul>
+<hr />
+<h3 id="fila_imprimir"><code>fila_imprimir</code></h3>
+<pre><code class="language-c">void fila_imprimir(const Fila *fila);
+</code></pre>
+<p>Imprime os elementos na ordem FIFO no formato <code>[ a, b, c ]</code> seguido de nova linha.
+Usa os índices circulares corretamente para percorrer apenas os elementos válidos.</p>
+<hr />
+<h2 id="complexidade-resumida">Complexidade resumida</h2>
+<table>
+<thead>
+<tr>
+<th>Operação</th>
+<th>Complexidade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enfileirar</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Desenfileirar</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Consultar frente</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Criar / Destruir</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="funcionamento-circular">Funcionamento circular</h2>
+<pre><code>capacidade = 5, tamanho = 3
+
+índice:   0    1    2    3    4
+dados:  [ 10 | 20 | 30 |  - |  - ]
+                            ^fim (próxima escrita)
+          ^inicio (próxima leitura)
+
+Após desenfileirar:
+  inicio = 1  →  [ - | 20 | 30 | - | - ]
+
+Após enfileirar(40):
+  fim    = 3  →  [ - | 20 | 30 | 40 | - ]
+</code></pre>
+<p>Quando <code>inicio</code> ou <code>fim</code> chegam ao fim do array, voltam para <code>0</code> via <code>% capacidade</code>.</p>
+<hr />
+<h2 id="exemplo-de-uso">Exemplo de uso</h2>
+<pre><code class="language-c">#include &quot;fila.h&quot;
+#include &lt;stdio.h&gt;
+
+int main(void) {
+    Fila fila;
+    int valor = 0;
+
+    fila_criar(&amp;fila, 5U);
+
+    fila_enfileirar(&amp;fila, 5);
+    fila_enfileirar(&amp;fila, 10);
+    fila_enfileirar(&amp;fila, 15);
+
+    fila_imprimir(&amp;fila);          /* [ 5, 10, 15 ] */
+
+    fila_frente(&amp;fila, &amp;valor);
+    printf(&quot;Frente: %d\n&quot;, valor); /* Frente: 5 */
+
+    fila_desenfileirar(&amp;fila, &amp;valor);
+    printf(&quot;Removido: %d\n&quot;, valor); /* Removido: 5 */
+
+    fila_imprimir(&amp;fila);          /* [ 10, 15 ] */
+
+    fila_destruir(&amp;fila);
+    return 0;
+}
+</code></pre>
+<hr />
+<h2 id="compilar-e-executar">Compilar e executar</h2>
+<pre><code class="language-bash">cd Lineares/Fila
+make        # compila o exemplo em build/app
+make run    # executa o exemplo
+make test   # executa os testes automatizados
+make clean  # remove artefatos
+</code></pre>
+<hr />
+<p>Voltar para o <a href="./README.md">índice da documentação</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Pilha/" class="btn btn-neutral float-left" title="Pilha"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Heap/" class="btn btn-neutral float-right" title="Heap">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C" class="fa fa-code-fork" style="color: #fcfcfc"> tiagofga/Estruturas-de-Dados-e-Algoritmos-em-C</a>
+        </span>
+    
+    
+      <span><a href="../Pilha/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Heap/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../vercel-analytics.js"></script>
+      <script src="https://va.vercel-scripts.com/v1/script.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
